@@ -1,7 +1,7 @@
 object FMainForm: TFMainForm
-  Left = -1286
+  Left = -1288
   Height = 618
-  Top = 168
+  Top = 169
   Width = 1219
   Caption = 'Format row'
   ClientHeight = 618
@@ -11,6 +11,7 @@ object FMainForm: TFMainForm
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Menu = MainMenu1
+  OnCreate = FormCreate
   OnShow = FormShow
   Position = poScreenCenter
   LCLVersion = '3.4.0.0'
@@ -32,7 +33,7 @@ object FMainForm: TFMainForm
     ClientWidth = 1219
     ParentBackground = False
     TabOrder = 0
-    object SpeedButton1: TSpeedButton
+    object SBExit: TSpeedButton
       Left = 4
       Height = 64
       Top = 4
@@ -173,9 +174,9 @@ object FMainForm: TFMainForm
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
       }
       Layout = blGlyphTop
-      OnClick = SpeedButton1Click
+      OnClick = SBExitClick
     end
-    object SpeedButton3: TSpeedButton
+    object SBExecute: TSpeedButton
       Left = 97
       Height = 64
       Top = 4
@@ -316,9 +317,9 @@ object FMainForm: TFMainForm
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
       }
       Layout = blGlyphTop
-      OnClick = SpeedButton3Click
+      OnClick = SBExecuteClick
     end
-    object SpeedButton4: TSpeedButton
+    object SBOpenFile: TSpeedButton
       Left = 190
       Height = 64
       Top = 4
@@ -459,9 +460,9 @@ object FMainForm: TFMainForm
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
       }
       Layout = blGlyphTop
-      OnClick = SpeedButton4Click
+      OnClick = SBOpenFileClick
     end
-    object SpeedButton7: TSpeedButton
+    object SBFlipViews: TSpeedButton
       Left = 376
       Height = 64
       Top = 4
@@ -602,7 +603,7 @@ object FMainForm: TFMainForm
         0000000000000000000000000000000000000000000000000000
       }
       Layout = blGlyphTop
-      OnClick = SpeedButton7Click
+      OnClick = SBFlipViewsClick
     end
     object SpeedButton5: TSpeedButton
       Left = 1179
@@ -665,7 +666,7 @@ object FMainForm: TFMainForm
       }
       OnClick = SpeedButton5Click
     end
-    object SpeedButton2: TSpeedButton
+    object SBMultiSelect: TSpeedButton
       Left = 469
       Height = 64
       Top = 4
@@ -806,9 +807,9 @@ object FMainForm: TFMainForm
         0000000000000000000000000000000000000000000000000000
       }
       Layout = blGlyphTop
-      OnClick = SpeedButton2Click
+      OnClick = SBMultiSelectClick
     end
-    object SpeedButton14: TSpeedButton
+    object SBHelp: TSpeedButton
       Left = 562
       Height = 64
       Top = 4
@@ -949,8 +950,9 @@ object FMainForm: TFMainForm
         0000000000000000000000000000000000000000000000000000
       }
       Layout = blGlyphTop
+      OnClick = SBHelpClick
     end
-    object SpeedButton15: TSpeedButton
+    object SBRemoveFilter: TSpeedButton
       Left = 283
       Height = 64
       Top = 4
@@ -1099,16 +1101,16 @@ object FMainForm: TFMainForm
     Height = 522
     Top = 75
     Width = 309
-    ActivePage = TabSheet4
+    ActivePage = TSMiscellaneous
     Align = alRight
     BorderSpacing.Around = 3
     MultiLine = True
-    TabIndex = 3
+    TabIndex = 5
     TabOrder = 1
     OnChange = DataChangePreView
     Options = [nboMultiLine]
-    object TabSheet1: TTabSheet
-      Caption = '&Main row'
+    object TSMain: TTabSheet
+      Caption = '&Main'
       ClientHeight = 474
       ClientWidth = 301
       object ScrollBox1: TScrollBox
@@ -1116,7 +1118,8 @@ object FMainForm: TFMainForm
         Height = 474
         Top = 0
         Width = 301
-        HorzScrollBar.Page = 286
+        HorzScrollBar.Page = 1
+        HorzScrollBar.Visible = False
         VertScrollBar.Page = 450
         Align = alClient
         BorderStyle = bsNone
@@ -1124,7 +1127,7 @@ object FMainForm: TFMainForm
         ClientWidth = 301
         ParentBackground = False
         TabOrder = 0
-        object Label6: TLabel
+        object LTSMainPreText: TLabel
           Left = 3
           Height = 14
           Top = 3
@@ -1137,8 +1140,9 @@ object FMainForm: TFMainForm
           Font.Name = 'Verdana'
           Font.Style = [fsBold]
           ParentFont = False
+          WordWrap = True
         end
-        object Label5: TLabel
+        object LTSMainRearText: TLabel
           Left = 3
           Height = 14
           Top = 46
@@ -1151,8 +1155,9 @@ object FMainForm: TFMainForm
           Font.Name = 'Verdana'
           Font.Style = [fsBold]
           ParentFont = False
+          WordWrap = True
         end
-        object Label10: TLabel
+        object LTSMainReplaceBefore: TLabel
           Left = 3
           Height = 14
           Top = 89
@@ -1165,8 +1170,9 @@ object FMainForm: TFMainForm
           Font.Name = 'Verdana'
           Font.Style = [fsBold]
           ParentFont = False
+          WordWrap = True
         end
-        object Label12: TLabel
+        object LTSMainReplaceAfter: TLabel
           Left = 3
           Height = 14
           Top = 202
@@ -1179,8 +1185,9 @@ object FMainForm: TFMainForm
           Font.Name = 'Verdana'
           Font.Style = [fsBold]
           ParentFont = False
+          WordWrap = True
         end
-        object Label16: TLabel
+        object LTSMainTrimTextFromStart: TLabel
           Left = 3
           Height = 14
           Top = 315
@@ -1193,8 +1200,9 @@ object FMainForm: TFMainForm
           Font.Name = 'Verdana'
           Font.Style = [fsBold]
           ParentFont = False
+          WordWrap = True
         end
-        object Label21: TLabel
+        object LTSMainFlipTextAroundThisText: TLabel
           Left = 3
           Height = 14
           Top = 358
@@ -1207,8 +1215,9 @@ object FMainForm: TFMainForm
           Font.Name = 'Verdana'
           Font.Style = [fsBold]
           ParentFont = False
+          WordWrap = True
         end
-        object Label23: TLabel
+        object LTSMainDeleteStringFromEndLineAndSetOnNewLine: TLabel
           Left = 3
           Height = 14
           Top = 401
@@ -1220,8 +1229,9 @@ object FMainForm: TFMainForm
           Font.Height = -12
           Font.Name = 'Verdana'
           ParentFont = False
+          WordWrap = True
         end
-        object EPreText: TEdit
+        object ETSMainPreText: TEdit
           Left = 13
           Height = 23
           Top = 20
@@ -1565,12 +1575,12 @@ object FMainForm: TFMainForm
         end
       end
     end
-    object TabSheet2: TTabSheet
+    object TSSubString: TTabSheet
       Caption = '&Sub string'
       ClientHeight = 474
       ClientWidth = 301
       ImageIndex = 1
-      object Label4: TLabel
+      object LTSSubStringSelectTextFrom: TLabel
         Left = 3
         Height = 14
         Top = 3
@@ -1584,7 +1594,7 @@ object FMainForm: TFMainForm
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object Label2: TLabel
+      object LTSSubStringSelectTextTo: TLabel
         Left = 3
         Height = 14
         Top = 46
@@ -1598,7 +1608,7 @@ object FMainForm: TFMainForm
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object Label8: TLabel
+      object LTSSubStringPreTextOnSubString: TLabel
         Left = 3
         Height = 14
         Top = 89
@@ -1612,7 +1622,7 @@ object FMainForm: TFMainForm
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object Label1: TLabel
+      object LTSSubStringRearTextOnSubString: TLabel
         Left = 3
         Height = 14
         Top = 132
@@ -1626,7 +1636,7 @@ object FMainForm: TFMainForm
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object Label27: TLabel
+      object LTSSubStringInfo: TLabel
         Left = 3
         Height = 14
         Top = 175
@@ -1640,7 +1650,7 @@ object FMainForm: TFMainForm
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object Label28: TLabel
+      object LTSSubStringInfoMessage: TLabel
         Left = 3
         Height = 28
         Top = 192
@@ -1719,7 +1729,7 @@ object FMainForm: TFMainForm
         ClientWidth = 301
         ParentBackground = False
         TabOrder = 0
-        object Label7: TLabel
+        object LTSCaseRowAfterChange: TLabel
           Left = 3
           Height = 14
           Top = 3
@@ -1742,7 +1752,7 @@ object FMainForm: TFMainForm
           BorderSpacing.Around = 3
           Shape = bsTopLine
         end
-        object CBRow: TCheckBox
+        object CBTSCaseFirstCharInRow: TCheckBox
           Left = 3
           Height = 19
           Top = 31
@@ -1752,9 +1762,9 @@ object FMainForm: TFMainForm
           Caption = 'Første karakter hele rækken'
           TabOrder = 0
           OnChange = DataChangePreView
-          OnClick = CBRowClick
+          OnClick = CBTSCaseFirstCharInRowClick
         end
-        object RadioButton3: TRadioButton
+        object RBTSCaseRowUpperCase: TRadioButton
           Left = 3
           Height = 19
           Top = 75
@@ -1764,9 +1774,9 @@ object FMainForm: TFMainForm
           Caption = 'UpperCase'
           TabOrder = 1
           OnChange = DataChangePreView
-          OnClick = RadioButton4Click
+          OnClick = RBTSCaseRowLowerCaseClick
         end
-        object RadioButton4: TRadioButton
+        object RBTSCaseRowLowerCase: TRadioButton
           Left = 3
           Height = 19
           Top = 53
@@ -1778,9 +1788,9 @@ object FMainForm: TFMainForm
           TabOrder = 2
           TabStop = True
           OnChange = DataChangePreView
-          OnClick = RadioButton4Click
+          OnClick = RBTSCaseRowLowerCaseClick
         end
-        object CheckBox1: TCheckBox
+        object CBTSCaseGoToNextLetteIfNotALetterRow: TCheckBox
           Left = 3
           Height = 19
           Top = 97
@@ -1790,7 +1800,7 @@ object FMainForm: TFMainForm
           Caption = 'Gå til næste hvis ikke et bogstav'
           TabOrder = 3
           OnChange = DataChangePreView
-          OnClick = CBRowClick
+          OnClick = CBTSCaseFirstCharInRowClick
         end
       end
       object Panel4: TPanel
@@ -1804,7 +1814,7 @@ object FMainForm: TFMainForm
         ClientWidth = 301
         ParentBackground = False
         TabOrder = 1
-        object Label3: TLabel
+        object LTSCaseSubString: TLabel
           Left = 3
           Height = 14
           Top = 3
@@ -1827,7 +1837,7 @@ object FMainForm: TFMainForm
           BorderSpacing.Around = 3
           Shape = bsTopLine
         end
-        object CBSubString: TCheckBox
+        object CBTSCaseFirstCharInSubString: TCheckBox
           Left = 13
           Height = 19
           Top = 31
@@ -1839,9 +1849,9 @@ object FMainForm: TFMainForm
           Caption = 'Første karakter på substring'
           TabOrder = 0
           OnChange = DataChangePreView
-          OnClick = CBRowClick
+          OnClick = CBTSCaseFirstCharInRowClick
         end
-        object RadioButton1: TRadioButton
+        object RBTSCaseSubStringUpperCase: TRadioButton
           Left = 23
           Height = 19
           Top = 75
@@ -1853,9 +1863,9 @@ object FMainForm: TFMainForm
           Caption = 'Uppercase'
           TabOrder = 1
           OnChange = DataChangePreView
-          OnClick = RadioButton4Click
+          OnClick = RBTSCaseRowLowerCaseClick
         end
-        object RadioButton2: TRadioButton
+        object RBTSCaseSubStringLowerCase: TRadioButton
           Left = 23
           Height = 19
           Top = 53
@@ -1869,9 +1879,9 @@ object FMainForm: TFMainForm
           TabOrder = 2
           TabStop = True
           OnChange = DataChangePreView
-          OnClick = RadioButton4Click
+          OnClick = RBTSCaseRowLowerCaseClick
         end
-        object CheckBox2: TCheckBox
+        object CBTSCaseGoToNextLetteIfNotALetterSubString: TCheckBox
           Left = 13
           Height = 19
           Top = 97
@@ -1883,16 +1893,16 @@ object FMainForm: TFMainForm
           Caption = 'Gå til næste hvis ikke et bogstav'
           TabOrder = 3
           OnChange = DataChangePreView
-          OnClick = CBRowClick
+          OnClick = CBTSCaseFirstCharInRowClick
         end
       end
     end
-    object TabSheet4: TTabSheet
+    object TSCSV: TTabSheet
       Caption = 'CSV'
       ClientHeight = 474
       ClientWidth = 301
       ImageIndex = 3
-      object Label14: TLabel
+      object LTSCSVExtractColoumnNo: TLabel
         Left = 3
         Height = 14
         Top = 3
@@ -1906,7 +1916,7 @@ object FMainForm: TFMainForm
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object Label15: TLabel
+      object LTSCSVDelimiter: TLabel
         Left = 3
         Height = 14
         Top = 46
@@ -1952,13 +1962,13 @@ object FMainForm: TFMainForm
         OnChange = DataChangePreView
       end
     end
-    object TabSheet6: TTabSheet
+    object TSClip: TTabSheet
       AutoSize = True
       Caption = 'C&lip'
       ClientHeight = 474
       ClientWidth = 301
       ImageIndex = 5
-      object Label31: TLabel
+      object LTSClipClipTextFromStartToMatch: TLabel
         Left = 3
         Height = 14
         Top = 3
@@ -1972,7 +1982,7 @@ object FMainForm: TFMainForm
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object Label32: TLabel
+      object LTSClipClipTextFromMatchToEndLine: TLabel
         Left = 3
         Height = 14
         Top = 46
@@ -1986,7 +1996,7 @@ object FMainForm: TFMainForm
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object Label33: TLabel
+      object LTSClipClip: TLabel
         Left = 3
         Height = 14
         Top = 89
@@ -2000,7 +2010,7 @@ object FMainForm: TFMainForm
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object Label40: TLabel
+      object LTSClipClipText: TLabel
         Left = 0
         Height = 14
         Top = 202
@@ -2051,7 +2061,7 @@ object FMainForm: TFMainForm
         ClientWidth = 275
         ParentBackground = False
         TabOrder = 2
-        object Label34: TLabel
+        object LTo3: TLabel
           Left = 111
           Height = 29
           Top = 0
@@ -2060,7 +2070,7 @@ object FMainForm: TFMainForm
           Caption = 'til'
           Layout = tlCenter
         end
-        object Label35: TLabel
+        object LFrom3: TLabel
           Left = 0
           Height = 29
           Top = 0
@@ -2102,7 +2112,7 @@ object FMainForm: TFMainForm
         ClientWidth = 275
         ParentBackground = False
         TabOrder = 3
-        object Label36: TLabel
+        object LTo2: TLabel
           Left = 111
           Height = 29
           Top = 0
@@ -2111,7 +2121,7 @@ object FMainForm: TFMainForm
           Caption = 'til'
           Layout = tlCenter
         end
-        object Label37: TLabel
+        object LFrom2: TLabel
           Left = 0
           Height = 29
           Top = 0
@@ -2153,7 +2163,7 @@ object FMainForm: TFMainForm
         ClientWidth = 275
         ParentBackground = False
         TabOrder = 4
-        object Label38: TLabel
+        object LTo1: TLabel
           Left = 111
           Height = 29
           Top = 0
@@ -2162,7 +2172,7 @@ object FMainForm: TFMainForm
           Caption = 'til'
           Layout = tlCenter
         end
-        object Label39: TLabel
+        object LFrom1: TLabel
           Left = 0
           Height = 29
           Top = 0
@@ -2227,7 +2237,7 @@ object FMainForm: TFMainForm
         OnChange = DataChangePreView
       end
     end
-    object TabSheet7: TTabSheet
+    object TSMiscellaneous: TTabSheet
       Caption = 'Diverse'
       ClientHeight = 474
       ClientWidth = 301
@@ -2245,7 +2255,7 @@ object FMainForm: TFMainForm
         ClientWidth = 301
         ParentBackground = False
         TabOrder = 0
-        object Label41: TLabel
+        object LTSMiscellaneousSelectOnlyRowsContainingThis: TLabel
           Left = 3
           Height = 14
           Top = 3
@@ -2259,7 +2269,7 @@ object FMainForm: TFMainForm
           Font.Style = [fsBold]
           ParentFont = False
         end
-        object Label42: TLabel
+        object LTSMiscellaneousSum: TLabel
           Left = 3
           Height = 14
           Top = 68
@@ -2273,7 +2283,7 @@ object FMainForm: TFMainForm
           Font.Style = [fsBold]
           ParentFont = False
         end
-        object Label24: TLabel
+        object LTSMiscellaneousInsertConsecutiveNoAfter: TLabel
           Left = 3
           Height = 14
           Top = 106
@@ -2287,7 +2297,7 @@ object FMainForm: TFMainForm
           Font.Style = [fsBold]
           ParentFont = False
         end
-        object Label26: TLabel
+        object LTSMiscellaneousCreateNumberOfLinesPerInputLine: TLabel
           Left = 3
           Height = 14
           Top = 155
@@ -2312,7 +2322,7 @@ object FMainForm: TFMainForm
           TabOrder = 0
           OnChange = DataChangePreView
         end
-        object CBIgnoreOtherRows: TCheckBox
+        object CBTSMiscellaneousIgnoreOtherRows: TCheckBox
           Left = 13
           Height = 19
           Top = 46
@@ -2325,7 +2335,7 @@ object FMainForm: TFMainForm
           TabOrder = 1
           OnChange = DataChangePreView
         end
-        object CBSumAllLines: TCheckBox
+        object CBTSMiscellaneousSumAllLinesToATotal: TCheckBox
           Left = 13
           Height = 18
           Top = 85
@@ -3008,7 +3018,7 @@ object FMainForm: TFMainForm
           Layout = blGlyphTop
           OnClick = SBDataInTrimClick
         end
-        object SBDataInRemoveDubLines: TSpeedButton
+        object SBDataInRemoveDuplicates: TSpeedButton
           Left = 299
           Height = 58
           Top = 3
@@ -3149,10 +3159,10 @@ object FMainForm: TFMainForm
             FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
           }
           Layout = blGlyphTop
-          OnClick = SBDataInRemoveDubLinesClick
+          OnClick = SBDataInRemoveDuplicatesClick
         end
       end
-      object Memo1: TMemo
+      object MDataIn: TMemo
         Left = 0
         Height = 438
         Top = 20
@@ -3165,29 +3175,32 @@ object FMainForm: TFMainForm
         PopupMenu = PopupMenu1
         TabOrder = 1
         WordWrap = False
-        OnChange = Memo1Change
+        OnChange = MDataInChange
       end
-      object ListView2: TListView
+      object LVMultiselect: TListView
         Left = 0
         Height = 200
         Top = 229
         Width = 371
+        BorderStyle = bsNone
         Columns = <        
           item
-            AutoSize = True
             Caption = 'Multi row select'
-            Width = 99
+            Width = 200
           end>
         Font.Color = clWindowText
         Font.Height = -16
         Font.Name = 'Consolas'
+        HideSelection = False
         MultiSelect = True
         ParentFont = False
+        ParentShowHint = False
+        RowSelect = True
         TabOrder = 2
         Visible = False
         ViewStyle = vsReport
       end
-      object Panel18: TPanel
+      object PDataIn: TPanel
         Left = 0
         Height = 20
         Top = 0
@@ -3305,8 +3318,8 @@ object FMainForm: TFMainForm
         ParentBackground = False
         TabOrder = 0
         OnResize = PFunctionsDataOutResize
-        object SpeedButton10: TSpeedButton
-          Left = 3
+        object SBDataOutlignTextRight: TSpeedButton
+          Left = 191
           Height = 58
           Top = 3
           Width = 91
@@ -3446,10 +3459,10 @@ object FMainForm: TFMainForm
             0000000000000000000000000000000000000000000000000000
           }
           Layout = blGlyphTop
-          OnClick = SpeedButton10Click
+          OnClick = SBDataOutlignTextRightClick
         end
-        object SpeedButton11: TSpeedButton
-          Left = 97
+        object SBDataOutTrim: TSpeedButton
+          Left = 285
           Height = 58
           Top = 3
           Width = 91
@@ -3589,10 +3602,10 @@ object FMainForm: TFMainForm
             783D8A8A8A9C7F7E7E857676761F000000000000000000000000
           }
           Layout = blGlyphTop
-          OnClick = SpeedButton11Click
+          OnClick = SBDataOutTrimClick
         end
-        object SpeedButton12: TSpeedButton
-          Left = 191
+        object SBDataOutAddTabLeft: TSpeedButton
+          Left = 97
           Height = 58
           Top = 3
           Width = 91
@@ -3732,10 +3745,10 @@ object FMainForm: TFMainForm
             0000000000000000000000000000000000000000000000000000
           }
           Layout = blGlyphTop
-          OnClick = SpeedButton12Click
+          OnClick = SBDataOutAddTabLeftClick
         end
-        object SpeedButton13: TSpeedButton
-          Left = 285
+        object SBDataOutCopy: TSpeedButton
+          Left = 3
           Height = 58
           Top = 3
           Width = 91
@@ -3875,10 +3888,10 @@ object FMainForm: TFMainForm
             0000000000000000000000000000000000000000000000000000
           }
           Layout = blGlyphTop
-          OnClick = SpeedButton13Click
+          OnClick = SBDataOutCopyClick
         end
       end
-      object Memo2: TMemo
+      object MDataOut: TMemo
         Left = 0
         Height = 418
         Top = 20
@@ -3891,7 +3904,7 @@ object FMainForm: TFMainForm
         TabOrder = 1
         WordWrap = False
       end
-      object Panel19: TPanel
+      object PDataOut: TPanel
         Left = 0
         Height = 20
         Top = 0
@@ -3984,12 +3997,13 @@ object FMainForm: TFMainForm
           OnClick = SBRightNormalClick
         end
       end
-      object Panel20: TPanel
+      object PShowPreviewInfo: TPanel
         Left = 0
         Height = 20
         Top = 438
         Width = 518
         Align = alBottom
+        BevelOuter = bvNone
         Caption = 'Preview only 10 rows.'
         Font.Color = clWindowText
         Font.Height = -12
@@ -4015,16 +4029,16 @@ object FMainForm: TFMainForm
     Top = 360
     object File1: TMenuItem
       Caption = 'File'
-      object benfil1: TMenuItem
+      object MNOpenFile: TMenuItem
         Caption = 'Åben fil'
-        OnClick = SpeedButton4Click
+        OnClick = SBOpenFileClick
       end
       object N2: TMenuItem
         Caption = '-'
       end
-      object Afslut1: TMenuItem
+      object MNAfslut: TMenuItem
         Caption = 'Afslut'
-        OnClick = SpeedButton1Click
+        OnClick = SBExitClick
       end
     end
     object ools1: TMenuItem
@@ -4032,7 +4046,7 @@ object FMainForm: TFMainForm
       object Exetute1: TMenuItem
         Caption = 'Exetute'
         ShortCut = 116
-        OnClick = SpeedButton3Click
+        OnClick = SBExecuteClick
       end
       object N1: TMenuItem
         Caption = '-'

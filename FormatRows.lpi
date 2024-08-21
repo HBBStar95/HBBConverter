@@ -78,6 +78,16 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="uSequencesNo"/>
       </Unit>
+      <Unit>
+        <Filename Value="usetup.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uSetup"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ulanguage.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uLanguage"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

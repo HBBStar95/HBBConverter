@@ -6,7 +6,7 @@ uses
   Forms,
   Interfaces,
   UMainForm in 'UMainForm.pas', uRemoveText, uFlipText,
-uReplaceText, uSubRow, uCase, uCSV, uSequencesNo {FMainForm};
+uReplaceText, uSubRow, uCase, uCSV, uSequencesNo, uSetup, uLanguage {FMainForm};
 
   {$R *.res}
 
