@@ -11,7 +11,6 @@ type
   TSetup = class(TObject)
   private
     procedure LoadSettings();
-    function GetSettingsFilePath: string;
 
   class var _instance: TSetup;
   public
@@ -19,6 +18,7 @@ type
     PreViewNumberOfRows: integer;
     LanguageFileName: string;
     Language: TLanguage;
+    function GetSettingsFilePath: string;
     class function Create: TSetup;
     destructor Destroy; override;
   end;
@@ -100,8 +100,18 @@ begin
     Language.ButtonAddTabLeft := getString('Button', 'AddTabLeft', 'Tab left');
     Language.ButtonAlignTextRight := getString('Button', 'AlignTextRight', 'Align right');
     // Info : Main menu
+    Language.MainMenuFile:= getString('MainMenu', 'File', 'File');
     Language.MainMenuExit := getString('MainMenu', 'Exit', 'Exit');
     Language.MainMenuOpenFile := getString('MainMenu', 'OpenFile', 'Open file');
+    Language.MainMenutools:= getString('MainMenu', 'Tools', 'Tools');
+    Language.MainMenuExecute:= getString('MainMenu', 'Execute', 'Execute');
+    Language.MainMenuRemoveFilter:= getString('MainMenu', 'RemoveFilter', 'Remove filter');
+    Language.MainMenuView:= getString('MainMenu', 'View', 'View');
+    Language.MainMenuShowHideFilter:= getString('MainMenu', 'ShowHideFilter', 'Filter (Show/Hide)');
+    Language.MainMenuShowDataIn:= getString('MainMenu', 'ShowDataIn', 'Show only left (Data in)');
+    Language.MainMenuShowDataOut:= getString('MainMenu', 'ShowDataOut', 'Show only right (Data Out)');
+    Language.MainMenuNormalView:= getString('MainMenu', 'NormalView', 'Normal view');
+
     // Info : TabSheet
     Language.TabSheetMainHeader := getString('TabSheetMain', 'Header', 'Main');
     Language.TabSheetMainPreText := getString('TabSheetMain', 'PreText', 'Pre text');

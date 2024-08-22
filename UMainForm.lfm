@@ -1093,7 +1093,7 @@ object FMainForm: TFMainForm
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
       }
       Layout = blGlyphTop
-      OnClick = Sletfilter1Click
+      OnClick = MMRemoveFilterClick
     end
   end
   object PageControl1: TPageControl
@@ -4027,9 +4027,9 @@ object FMainForm: TFMainForm
   object MainMenu1: TMainMenu
     Left = 688
     Top = 360
-    object File1: TMenuItem
+    object MMFile: TMenuItem
       Caption = 'File'
-      object MNOpenFile: TMenuItem
+      object MMOpenFile: TMenuItem
         Caption = 'Åben fil'
         OnClick = SBOpenFileClick
       end
@@ -4041,9 +4041,9 @@ object FMainForm: TFMainForm
         OnClick = SBExitClick
       end
     end
-    object ools1: TMenuItem
+    object MMTools: TMenuItem
       Caption = 'Tools'
-      object Exetute1: TMenuItem
+      object MMExecute: TMenuItem
         Caption = 'Exetute'
         ShortCut = 116
         OnClick = SBExecuteClick
@@ -4051,75 +4051,42 @@ object FMainForm: TFMainForm
       object N1: TMenuItem
         Caption = '-'
       end
-      object Gemsettings1: TMenuItem
-        Caption = 'Gem settings'
-        ShortCut = 113
-      end
-      object Sletfilter1: TMenuItem
+      object MMRemoveFilter: TMenuItem
         Caption = 'Slet filter'
-        OnClick = Sletfilter1Click
+        OnClick = MMRemoveFilterClick
       end
     end
-    object View1: TMenuItem
+    object MMView: TMenuItem
       Caption = 'Vis'
-      object Sidemenu1: TMenuItem
+      object MMShowHideFilter: TMenuItem
         Caption = 'Side menu'
         ShortCut = 123
         OnClick = SpeedButton5Click
       end
-      object N3: TMenuItem
-        Caption = '-'
-      end
-      object Main1: TMenuItem
-        Caption = 'Main'
-        ShortCut = 16461
-        OnClick = Main1Click
-      end
-      object Substring1: TMenuItem
-        Caption = 'Sub string'
-        ShortCut = 16467
-        OnClick = Substring1Click
-      end
-      object Case1: TMenuItem
-        Caption = 'Case'
-        ShortCut = 16453
-        OnClick = Case1Click
-      end
-      object CSV1: TMenuItem
-        Caption = 'CSV'
-        ShortCut = 16463
-        OnClick = CSV1Click
-      end
-      object Klip1: TMenuItem
-        Caption = 'Klip'
-        ShortCut = 16460
-        OnClick = Klip1Click
-      end
-      object N4: TMenuItem
-        Caption = '-'
-      end
-      object Gemtefiltre1: TMenuItem
-        Caption = 'Gemte filtre'
-        ShortCut = 16456
-        OnClick = Gemtefiltre1Click
-      end
       object N5: TMenuItem
         Caption = '-'
       end
-      object ShowonlyleftDatain1: TMenuItem
+      object MMShowDataIn: TMenuItem
         Caption = 'Show only left, Data in'
         ShortCut = 32817
         OnClick = SBLeftMaximizeClick
       end
-      object ShowonlyrightDataout1: TMenuItem
+      object MMShowDataOut: TMenuItem
         Caption = 'Show only right, Data out'
         ShortCut = 32818
         OnClick = SBRightMaximizeClick
       end
-      object Shownormalview1: TMenuItem
+      object MMNormalView: TMenuItem
         Caption = 'Show normal view'
         ShortCut = 32846
         OnClick = SBRightNormalClick
+      end
+    end
+    object MMHelp: TMenuItem
+      Caption = 'Help'
+      object MMHelpOnline: TMenuItem
+        Caption = 'Help online'
+        OnClick = SBHelpClick
       end
     end
   end

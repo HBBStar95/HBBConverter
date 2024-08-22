@@ -27,8 +27,18 @@ type
     FButtonRemoveDuplicates: string;
     FButtonAddTabLeft: string;
     FButtonAlignTextRight: string;
+    FMainMenuFile: string;
     FMainMenuExit: string;
     FMainMenuOpenFile: string;
+    FMainMenuTools: string;
+    FMainMenuExecute: string;
+    FMainMenuRemoveFilter: string;
+    FMainMenuView: string;
+    FMainMenuShowHideFilter: string;
+    FMainMenuShowDataIn: string;
+    FMainMenuShowDataOut: string;
+
+
     FTabSheetMainHeader: string;
     FTabSheetMainPreText: string;
     FTabSheetMainRearText: string;
@@ -64,14 +74,14 @@ type
     FTabSheetClipClipText: string;
     FFrom: string;
     FTo: string;
-    FTabSheetMiscellaneousHeader:String;
-    FTabSheetMiscellaneousSelectOnlyRowsContainingThis:String;
-    FTabSheetMiscellaneousSum:String;
-    FTabSheetMiscellaneousInsertConsecutiveNoAfter:String;
-    FTabSheetMiscellaneousCreateNumberOfLinesPerInputLine:String;
-    FTabSheetMiscellaneousIgnoreOtherRows:String;
-    FTabSheetMiscellaneousSumAllLinesToATotal:String;
-
+    FTabSheetMiscellaneousHeader: string;
+    FTabSheetMiscellaneousSelectOnlyRowsContainingThis: string;
+    FTabSheetMiscellaneousSum: string;
+    FTabSheetMiscellaneousInsertConsecutiveNoAfter: string;
+    FTabSheetMiscellaneousCreateNumberOfLinesPerInputLine: string;
+    FTabSheetMiscellaneousIgnoreOtherRows: string;
+    FTabSheetMiscellaneousSumAllLinesToATotal: string;
+    FMainMenuNormalView:String;
   public
   published
     property PanelPreViewInfo: string read FPanelPreViewInfo write FPanelPreViewInfo;
@@ -91,8 +101,21 @@ type
     property ButtonRemoveDuplicates: string read FButtonRemoveDuplicates write FButtonRemoveDuplicates;
     property ButtonAddTabLeft: string read FButtonAddTabLeft write FButtonAddTabLeft;
     property ButtonAlignTextRight: string read FButtonAlignTextRight write FButtonAlignTextRight;
+
+    property MainMenuFile: string read FMainMenuFile write FMainMenuFile;
     property MainMenuExit: string read FMainMenuExit write FMainMenuExit;
     property MainMenuOpenFile: string read FMainMenuOpenFile write FMainMenuOpenFile;
+    property MainMenuTools: string read FMainMenuTools write FMainMenutools;
+    property MainMenuExecute: string read FMainMenuExecute write FMainMenuExecute;
+    property MainMenuRemoveFilter: string read FMainMenuRemoveFilter write FMainMenuRemoveFilter;
+    property MainMenuView: string read FMainMenuView write FMainMenuView;
+    property MainMenuShowHideFilter: string read FMainMenuShowHideFilter write FMainMenuShowHideFilter;
+    property MainMenuShowDataIn: string read FMainMenuShowDataIn write FMainMenuShowDataIn;
+    property MainMenuShowDataOut: string read FMainMenuShowDataOut write FMainMenuShowDataOut;
+    property MainMenuNormalView: string read FMainMenuNormalView write FMainMenuNormalView;
+
+
+
     property TabSheetMainHeader: string read FTabSheetMainHeader write FTabSheetMainHeader;
     property TabSheetMainPreText: string read FTabSheetMainPreText write FTabSheetMainPreText;
     property TabSheetMainRearText: string read FTabSheetMainRearText write FTabSheetMainRearText;
@@ -142,7 +165,6 @@ type
     property TabSheetMiscellaneousCreateNumberOfLinesPerInputLine: string read FTabSheetMiscellaneousCreateNumberOfLinesPerInputLine write FTabSheetMiscellaneousCreateNumberOfLinesPerInputLine;
     property TabSheetMiscellaneousIgnoreOtherRows: string read FTabSheetMiscellaneousIgnoreOtherRows write FTabSheetMiscellaneousIgnoreOtherRows;
     property TabSheetMiscellaneousSumAllLinesToATotal: string read FTabSheetMiscellaneousSumAllLinesToATotal write FTabSheetMiscellaneousSumAllLinesToATotal;
-
 
 
 

@@ -7,7 +7,7 @@ uses
   StdCtrls, Buttons, Clipbrd, ComCtrls, Menus, Spin, uFlipText,
   uReplaceText, uSubRow, uCase, uCSV, uSequencesNo, uSetup
   {$IFDEF WINDOWS}
-  ,ShellApi
+//  ,ShellApi
   , Windows
   {$ENDIF}
   {$IFDEF UNIX}
@@ -20,6 +20,8 @@ type
   { TFMainForm }
 
   TFMainForm = class(TForm)
+    MMHelpOnline: TMenuItem;
+    MMHelp: TMenuItem;
     OpenDialog1: TOpenDialog;
     Panel2: TPanel;
     PShowPreviewInfo: TPanel;
@@ -27,16 +29,15 @@ type
     SBExecute: TSpeedButton;
     Label9: TLabel;
     MainMenu1: TMainMenu;
-    File1: TMenuItem;
+    MMFile: TMenuItem;
     MNAfslut: TMenuItem;
-    ools1: TMenuItem;
-    Exetute1: TMenuItem;
+    MMTools: TMenuItem;
+    MMExecute: TMenuItem;
     SBOpenFile: TSpeedButton;
     N1: TMenuItem;
-    Gemsettings1: TMenuItem;
     N2: TMenuItem;
-    MNOpenFile: TMenuItem;
-    Sletfilter1: TMenuItem;
+    MMOpenFile: TMenuItem;
+    MMRemoveFilter: TMenuItem;
     SBFlipViews: TSpeedButton;
     PageControl1: TPageControl;
     TSMain: TTabSheet;
@@ -72,21 +73,13 @@ type
     Edit11: TEdit;
     ComboBox1: TComboBox;
     SpeedButton5: TSpeedButton;
-    View1: TMenuItem;
-    Sidemenu1: TMenuItem;
-    N3: TMenuItem;
-    Main1: TMenuItem;
-    Substring1: TMenuItem;
-    Case1: TMenuItem;
-    CSV1: TMenuItem;
-    Gemtefiltre1: TMenuItem;
-    N4: TMenuItem;
+    MMView: TMenuItem;
+    MMShowHideFilter: TMenuItem;
     TSClip: TTabSheet;
     LTSClipClipTextFromStartToMatch: TLabel;
     Edit5: TEdit;
     LTSClipClipTextFromMatchToEndLine: TLabel;
     Edit6: TEdit;
-    Klip1: TMenuItem;
     LTSClipClip: TLabel;
     Panel1: TPanel;
     LTo3: TLabel;
@@ -184,9 +177,9 @@ type
     SBLeftNormal: TSpeedButton;
     SBRightNormal: TSpeedButton;
     N5: TMenuItem;
-    ShowonlyleftDatain1: TMenuItem;
-    ShowonlyrightDataout1: TMenuItem;
-    Shownormalview1: TMenuItem;
+    MMShowDataIn: TMenuItem;
+    MMShowDataOut: TMenuItem;
+    MMNormalView: TMenuItem;
     Panel13: TPanel;
     Label25: TLabel;
     Edit24: TEdit;
@@ -194,10 +187,8 @@ type
     LTSMiscellaneousInsertConsecutiveNoAfter: TLabel;
     LTSMiscellaneousCreateNumberOfLinesPerInputLine: TLabel;
     SpinEdit3: TSpinEdit;
-    procedure CBRowChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure MDataInChange(Sender: TObject);
-    procedure RadioButton4Change(Sender: TObject);
     procedure SBHelpClick(Sender: TObject);
     procedure SBExecuteClick(Sender: TObject);
     procedure SBExitClick(Sender: TObject);
@@ -206,7 +197,7 @@ type
     procedure DataChangePreView(Sender: TObject);
     procedure CBTSCaseFirstCharInRowClick(Sender: TObject);
     procedure RBTSCaseRowLowerCaseClick(Sender: TObject);
-    procedure Sletfilter1Click(Sender: TObject);
+    procedure MMRemoveFilterClick(Sender: TObject);
     procedure SBFlipViewsClick(Sender: TObject);
     procedure SBDataOutlignTextRightClick(Sender: TObject);
     procedure SBDataOutTrimClick(Sender: TObject);
@@ -217,13 +208,6 @@ type
     procedure SBDataInDeleteClick(Sender: TObject);
     procedure SBDataInTrimClick(Sender: TObject);
     procedure SpeedButton5Click(Sender: TObject);
-    procedure Gemtefiltre1Click(Sender: TObject);
-    procedure Main1Click(Sender: TObject);
-    procedure SpinEdit1Change(Sender: TObject);
-    procedure Substring1Click(Sender: TObject);
-    procedure Case1Click(Sender: TObject);
-    procedure CSV1Click(Sender: TObject);
-    procedure Klip1Click(Sender: TObject);
     procedure PFunctionsDataInResize(Sender: TObject);
     procedure PFunctionsDataOutResize(Sender: TObject);
     procedure Panel15Resize(Sender: TObject);
@@ -261,19 +245,10 @@ implementation
 
 uses uRemoveText, Themes;
 
-procedure TFMainForm.Case1Click(Sender: TObject);
-begin
-  PageControl1.TabIndex := 2;
-end;
-
 procedure TFMainForm.CBTSCaseFirstCharInRowClick(Sender: TObject);
 begin
 end;
 
-procedure TFMainForm.CSV1Click(Sender: TObject);
-begin
-  PageControl1.TabIndex := 3;
-end;
 
 procedure TFMainForm.DataChangePreView(Sender: TObject);
 begin
@@ -282,8 +257,6 @@ end;
 
 function TFMainForm.FormatRow(aRow: string): string;
 var
-  I: integer;
-  tmpRow: string;
   preRow: string;
   pResult: string;
 begin
@@ -410,27 +383,9 @@ end;
 procedure TFMainForm.FormShow(Sender: TObject);
 begin
   PageControl1.ActivePageIndex := 0;
+  MDataIn.SetFocus;
 end;
 
-procedure TFMainForm.Gemtefiltre1Click(Sender: TObject);
-begin
-  PageControl1.TabIndex := 5;
-
-end;
-
-procedure TFMainForm.Klip1Click(Sender: TObject);
-begin
-  PageControl1.TabIndex := 4;
-end;
-
-procedure TFMainForm.Main1Click(Sender: TObject);
-begin
-  PageControl1.TabIndex := 0;
-end;
-
-procedure TFMainForm.SpinEdit1Change(Sender: TObject);
-begin
-end;
 
 procedure TFMainForm.Panel15Resize(Sender: TObject);
 var
@@ -501,7 +456,7 @@ begin
 
 end;
 
-procedure TFMainForm.Sletfilter1Click(Sender: TObject);
+procedure TFMainForm.MMRemoveFilterClick(Sender: TObject);
 begin
   Edit1.Text := '';
   Edit2.Text := '';
@@ -735,8 +690,6 @@ procedure TFMainForm.SBExecuteClick(Sender: TObject);
 
 var
   I: integer;
-  row: string;
-  subRow: string;
 begin
   PShowPreviewInfo.Visible := False;
   ProgressBar1.Max := MDataIn.Lines.Count - 1;
@@ -841,13 +794,7 @@ begin
     end;
 end;
 
-procedure TFMainForm.RadioButton4Change(Sender: TObject);
-begin
-end;
 
-procedure TFMainForm.CBRowChange(Sender: TObject);
-begin
-end;
 
 procedure TFMainForm.FormCreate(Sender: TObject);
 var
@@ -876,8 +823,18 @@ begin
   SBDataOutTrim.Caption := setup.Language.ButtonTrim;
   // Info : Main menu
   // Note :
+  MMFile.Caption := setup.Language.MainMenuFile;
   MNAfslut.Caption := setup.Language.MainMenuExit;
-  MNOpenFile.Caption := setup.Language.MainMenuOpenFile;
+  MMOpenFile.Caption := setup.Language.MainMenuOpenFile;
+  MMTools.Caption := setup.Language.MainMenuTools;
+  MMExecute.Caption := setup.Language.MainMenuExecute;
+  MMRemoveFilter.Caption := setup.Language.MainMenuRemoveFilter;
+  MMView.Caption := setup.Language.MainMenuView;
+  MMShowHideFilter.Caption := setup.Language.MainMenuShowHideFilter;
+  MMShowDataIn.Caption := setup.Language.MainMenuShowDataIn;
+  MMShowDataOut.Caption := setup.Language.MainMenuShowDataOut;
+  MMNormalView.Caption := setup.Language.MainMenuNormalView;
+
   // Info :Main
   // Note :
   TSMain.Caption := setup.Language.TabSheetMainHeader;
@@ -886,10 +843,8 @@ begin
   LTSMainReplaceBefore.Caption := setup.Language.TabSheetMainReplaceBefore;
   LTSMainReplaceAfter.Caption := setup.Language.TabSheetMainReplaceAfter;
   LTSMainTrimTextFromStart.Caption := setup.Language.TabSheetMainTrimTextFromStart;
-  LTSMainFlipTextAroundThisText.Caption :=
-    setup.Language.TabSheetMainFlipTextAroundThisText;
-  LTSMainDeleteStringFromEndLineAndSetOnNewLine.Caption :=
-    setup.Language.TabSheetMainDeleteStringFromEndLineAndSetOnNewLine;
+  LTSMainFlipTextAroundThisText.Caption := setup.Language.TabSheetMainFlipTextAroundThisText;
+  LTSMainDeleteStringFromEndLineAndSetOnNewLine.Caption := setup.Language.TabSheetMainDeleteStringFromEndLineAndSetOnNewLine;
   // Info : Shop string
   // Note :
   TSSubString.Caption := setup.Language.TabSheetSubStringHeader;
@@ -927,13 +882,13 @@ begin
   LTo2.Caption := setup.Language.To_;
   LTo3.Caption := setup.Language.To_;
 
-  TSMiscellaneous.Caption:=setup.Language.TabSheetMiscellaneousHeader;
-  LTSMiscellaneousSelectOnlyRowsContainingThis.Caption:=setup.Language.TabSheetMiscellaneousSelectOnlyRowsContainingThis;
-  LTSMiscellaneousSum.Caption:=setup.Language.TabSheetMiscellaneousSum;
-  LTSMiscellaneousInsertConsecutiveNoAfter.caption:=setup.Language.TabSheetMiscellaneousInsertConsecutiveNoAfter;
-  LTSMiscellaneousCreateNumberOfLinesPerInputLine.caption:=setup.Language.TabSheetMiscellaneousCreateNumberOfLinesPerInputLine;
-  CBTSMiscellaneousIgnoreOtherRows.caption :=setup.Language.TabSheetMiscellaneousIgnoreOtherRows;
-  CBTSMiscellaneousSumAllLinesToATotal.caption :=setup.Language.TabSheetMiscellaneousSumAllLinesToATotal;
+  TSMiscellaneous.Caption := setup.Language.TabSheetMiscellaneousHeader;
+  LTSMiscellaneousSelectOnlyRowsContainingThis.Caption := setup.Language.TabSheetMiscellaneousSelectOnlyRowsContainingThis;
+  LTSMiscellaneousSum.Caption := setup.Language.TabSheetMiscellaneousSum;
+  LTSMiscellaneousInsertConsecutiveNoAfter.Caption := setup.Language.TabSheetMiscellaneousInsertConsecutiveNoAfter;
+  LTSMiscellaneousCreateNumberOfLinesPerInputLine.Caption := setup.Language.TabSheetMiscellaneousCreateNumberOfLinesPerInputLine;
+  CBTSMiscellaneousIgnoreOtherRows.Caption := setup.Language.TabSheetMiscellaneousIgnoreOtherRows;
+  CBTSMiscellaneousSumAllLinesToATotal.Caption := setup.Language.TabSheetMiscellaneousSumAllLinesToATotal;
 end;
 
 
@@ -1002,9 +957,5 @@ begin
 end;
 
 
-procedure TFMainForm.Substring1Click(Sender: TObject);
-begin
-  PageControl1.TabIndex := 1;
-end;
 
 end.
