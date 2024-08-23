@@ -37,7 +37,9 @@ type
     FMainMenuShowHideFilter: string;
     FMainMenuShowDataIn: string;
     FMainMenuShowDataOut: string;
-
+    FMainMenuInsertCode: string;
+    FMainMenuTheEntireStartingLine: string;
+    FMainMenuCopyTextTo:String;
 
     FTabSheetMainHeader: string;
     FTabSheetMainPreText: string;
@@ -74,6 +76,8 @@ type
     FTabSheetClipClipText: string;
     FFrom: string;
     FTo: string;
+    FCopy: string;
+    FInfo: string;
     FTabSheetMiscellaneousHeader: string;
     FTabSheetMiscellaneousSelectOnlyRowsContainingThis: string;
     FTabSheetMiscellaneousSum: string;
@@ -81,7 +85,11 @@ type
     FTabSheetMiscellaneousCreateNumberOfLinesPerInputLine: string;
     FTabSheetMiscellaneousIgnoreOtherRows: string;
     FTabSheetMiscellaneousSumAllLinesToATotal: string;
-    FMainMenuNormalView:String;
+    FTabSheetCopyCopyTextTo: string;
+    FMainMenuNormalView: string;
+    FMsgProgramMustBeRestartedDoYouWantToRestartTheProgram: string;
+    FMsgNotPossibleToCopyFileToSetupFolder: string;
+    FMsgInsertCode2InYourDataInputOrInVonvateringsFilterCode2WillBeReplacedWithTheCopiedText: string;
   public
   published
     property PanelPreViewInfo: string read FPanelPreViewInfo write FPanelPreViewInfo;
@@ -113,8 +121,9 @@ type
     property MainMenuShowDataIn: string read FMainMenuShowDataIn write FMainMenuShowDataIn;
     property MainMenuShowDataOut: string read FMainMenuShowDataOut write FMainMenuShowDataOut;
     property MainMenuNormalView: string read FMainMenuNormalView write FMainMenuNormalView;
-
-
+    property MainMenuInsertCode: string read FMainMenuInsertCode write FMainMenuInsertCode;
+    property MainMenuTheEntireStartingLine: string read FMainMenuTheEntireStartingLine write FMainMenuTheEntireStartingLine;
+    property MainMenuCopyTextTo:String read FMainMenuCopyTextTo write FMainMenuCopyTextTo;
 
     property TabSheetMainHeader: string read FTabSheetMainHeader write FTabSheetMainHeader;
     property TabSheetMainPreText: string read FTabSheetMainPreText write FTabSheetMainPreText;
@@ -157,6 +166,8 @@ type
 
     property From: string read FFrom write FFrom;
     property To_: string read FTo write FTo;
+    property Copy: string read FCopy write FCopy;
+    property Info: string read FInfo write FInfo;
 
     property TabSheetMiscellaneousHeader: string read FTabSheetMiscellaneousHeader write FTabSheetMiscellaneousHeader;
     property TabSheetMiscellaneousSelectOnlyRowsContainingThis: string read FTabSheetMiscellaneousSelectOnlyRowsContainingThis write FTabSheetMiscellaneousSelectOnlyRowsContainingThis;
@@ -166,7 +177,12 @@ type
     property TabSheetMiscellaneousIgnoreOtherRows: string read FTabSheetMiscellaneousIgnoreOtherRows write FTabSheetMiscellaneousIgnoreOtherRows;
     property TabSheetMiscellaneousSumAllLinesToATotal: string read FTabSheetMiscellaneousSumAllLinesToATotal write FTabSheetMiscellaneousSumAllLinesToATotal;
 
+    property TabSheetCopyCopyTextTo: string read FTabSheetCopyCopyTextTo write FTabSheetCopyCopyTextTo;
 
+    property MsgProgramMustBeRestartedDoYouWantToRestartTheProgram: string read FMsgProgramMustBeRestartedDoYouWantToRestartTheProgram write FMsgProgramMustBeRestartedDoYouWantToRestartTheProgram;
+
+    property MsgNotPossibleToCopyFileToSetupFolder: string read FMsgNotPossibleToCopyFileToSetupFolder write FMsgNotPossibleToCopyFileToSetupFolder;
+    property MsgInsertCode2InYourDataInputOrInVonvateringsFilterCode2WillBeReplacedWithTheCopiedText: string read FMsgInsertCode2InYourDataInputOrInVonvateringsFilterCode2WillBeReplacedWithTheCopiedText write FMsgInsertCode2InYourDataInputOrInVonvateringsFilterCode2WillBeReplacedWithTheCopiedText;
 
   end;
 

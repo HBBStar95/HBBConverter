@@ -19,12 +19,26 @@ type
     LanguageFileName: string;
     Language: TLanguage;
     function GetSettingsFilePath: string;
+    procedure SetLanguage(aLanguage: string);
+
     class function Create: TSetup;
     destructor Destroy; override;
   end;
 
 
 implementation
+
+procedure TSetup.SetLanguage(aLanguage: string);
+var
+  Ini: TIniFile;
+begin
+  Ini := TIniFile.Create(Format(GetSettingsFilePath, ['settings.ini']));
+  try
+    INI.WriteString('Setup', 'LanguageFileName', aLanguage);
+  finally
+    Ini.Free;
+  end;
+end;
 
 
 procedure TSetup.LoadSettings();
@@ -100,17 +114,20 @@ begin
     Language.ButtonAddTabLeft := getString('Button', 'AddTabLeft', 'Tab left');
     Language.ButtonAlignTextRight := getString('Button', 'AlignTextRight', 'Align right');
     // Info : Main menu
-    Language.MainMenuFile:= getString('MainMenu', 'File', 'File');
+    Language.MainMenuFile := getString('MainMenu', 'File', 'File');
     Language.MainMenuExit := getString('MainMenu', 'Exit', 'Exit');
     Language.MainMenuOpenFile := getString('MainMenu', 'OpenFile', 'Open file');
-    Language.MainMenutools:= getString('MainMenu', 'Tools', 'Tools');
-    Language.MainMenuExecute:= getString('MainMenu', 'Execute', 'Execute');
-    Language.MainMenuRemoveFilter:= getString('MainMenu', 'RemoveFilter', 'Remove filter');
-    Language.MainMenuView:= getString('MainMenu', 'View', 'View');
-    Language.MainMenuShowHideFilter:= getString('MainMenu', 'ShowHideFilter', 'Filter (Show/Hide)');
-    Language.MainMenuShowDataIn:= getString('MainMenu', 'ShowDataIn', 'Show only left (Data in)');
-    Language.MainMenuShowDataOut:= getString('MainMenu', 'ShowDataOut', 'Show only right (Data Out)');
-    Language.MainMenuNormalView:= getString('MainMenu', 'NormalView', 'Normal view');
+    Language.MainMenutools := getString('MainMenu', 'Tools', 'Tools');
+    Language.MainMenuExecute := getString('MainMenu', 'Execute', 'Execute');
+    Language.MainMenuRemoveFilter := getString('MainMenu', 'RemoveFilter', 'Remove filter');
+    Language.MainMenuView := getString('MainMenu', 'View', 'View');
+    Language.MainMenuShowHideFilter := getString('MainMenu', 'ShowHideFilter', 'Filter (Show/Hide)');
+    Language.MainMenuShowDataIn := getString('MainMenu', 'ShowDataIn', 'Show only left (Data in)');
+    Language.MainMenuShowDataOut := getString('MainMenu', 'ShowDataOut', 'Show only right (Data Out)');
+    Language.MainMenuNormalView := getString('MainMenu', 'NormalView', 'Normal view');
+    Language.MainMenuInsertCode:= getString('MainMenu', 'InsertCode', 'Insert code');
+    Language.MainMenuTheEntireStartingLine:= getString('MainMenu', 'TheEntireStartingLine', 'the entire starting line.');
+    Language.MainMenuCopyTextTo:= getString('MainMenu', 'CopyTextTo', 'Copy text to');
 
     // Info : TabSheet
     Language.TabSheetMainHeader := getString('TabSheetMain', 'Header', 'Main');
@@ -154,6 +171,8 @@ begin
 
     Language.From := getString('Global', 'From', 'From');
     Language.To_ := getString('Global', 'To', 'To');
+    Language.Copy := getString('Global', 'Copy', 'Copy');
+    Language.Info := getString('Global', 'Info', 'Info');
 
     Language.TabSheetMiscellaneousHeader := getString('TabSheetMiscellaneous', 'Header', 'Miscellaneous');
     Language.TabSheetMiscellaneousSelectOnlyRowsContainingThis := getString('TabSheetMiscellaneous', 'TabSheetMiscellaneousSelectOnlyRowsContainingThis', 'Select only rows containing this.');
@@ -163,6 +182,10 @@ begin
     Language.TabSheetMiscellaneousIgnoreOtherRows := getString('TabSheetMiscellaneous', 'TabSheetMiscellaneousIgnoreOtherRows', 'Ignore other rows.');
     Language.TabSheetMiscellaneousSumAllLinesToATotal := getString('TabSheetMiscellaneous', 'TabSheetMiscellaneousSumAllLinesToATotal', 'Sum all lines to a total.');
 
+    Language.TabSheetCopyCopyTextTo:= getString('TabSheetCopy', 'TabSheetCopyCopyTextTo', 'Copy text to');
+    Language.MsgProgramMustBeRestartedDoYouWantToRestartTheProgram:= getString('Message', 'ProgramMustBeRestartedDoYouWantToRestartTheProgram', 'Program must be restarted. Do you want to restart the program?');
+    Language.MsgNotPossibleToCopyFileToSetupFolder:= getString('Message', 'MsgNotPossibleToCopyFileToSetupFolder', 'Not possible to copy file to setup folder.');
+    Language.MsgInsertCode2InYourDataInputOrInVonvateringsFilterCode2WillBeReplacedWithTheCopiedText:= getString('Message', 'MsgInsertCode2InYourDataInputOrInVonvateringsFilterCode2WillBeReplacedWithTheCopiedText', 'insert {2},{3} or {4} in your data input, or in convatering''s filter. {x} will be replaced with the copied text.');
 
   finally
     Ini.Free;
@@ -192,18 +215,18 @@ var
 begin
   {$IFDEF Windows}
   SettingsDir := GetEnvironmentVariable('APPDATA'); // Dette vil returnere AppData\Roaming mappen.
-  SettingsDir := IncludeTrailingPathDelimiter(SettingsDir) + 'FormatRows';
+  SettingsDir := IncludeTrailingPathDelimiter(SettingsDir) + 'HBBConverter';
   {$ENDIF}
 
   {$IFDEF Linux}
   SettingsDir := GetEnvironmentVariable('HOME'); // Dette vil returnere brugerens hjemmemappe.
-  SettingsDir := IncludeTrailingPathDelimiter(SettingsDir) + '.FormatRows';
+  SettingsDir := IncludeTrailingPathDelimiter(SettingsDir) + '.HBBConverter';
   {$ENDIF}
 
   {$IFDEF Darwin}
  // macOS bruger 'Darwin' som systemidentifiering
   SettingsDir := GetEnvironmentVariable('HOME'); // Henter brugerens hjemmemappe.
-  SettingsDir := IncludeTrailingPathDelimiter(SettingsDir) + 'Library/Application Support/FormatRows';
+  SettingsDir := IncludeTrailingPathDelimiter(SettingsDir) + 'Library/Application Support/HBBConverter';
   {$ENDIF}
 
   // Opret mappen, hvis den ikke findes

@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="HBBConverter.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="8"/>
+        <CursorPos X="14" Y="7"/>
+        <UsageCount Value="77"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="UMainForm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FMainForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <TopLine Value="853"/>
+        <CursorPos X="42" Y="861"/>
+        <ComponentState Value="1"/>
+        <UsageCount Value="77"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uremovetext.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uRemoveText"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="20"/>
+        <CursorPos X="38" Y="26"/>
+        <UsageCount Value="75"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ufliptext.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uFlipText"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="26"/>
+        <CursorPos Y="27"/>
+        <UsageCount Value="73"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ureplacetext.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uReplaceText"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="24" Y="14"/>
+        <UsageCount Value="71"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="usubrow.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uSubRow"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="17"/>
+        <CursorPos Y="27"/>
+        <UsageCount Value="70"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ucase.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uCase"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="18"/>
+        <CursorPos Y="26"/>
+        <UsageCount Value="67"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ucsv.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uCSV"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="27"/>
+        <CursorPos X="35" Y="30"/>
+        <UsageCount Value="67"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="usequencesno.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uSequencesNo"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="21"/>
+        <CursorPos Y="24"/>
+        <UsageCount Value="66"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="usetup.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uSetup"/>
+        <EditorIndex Value="7"/>
+        <TopLine Value="31"/>
+        <CursorPos X="67" Y="44"/>
+        <UsageCount Value="60"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ulanguage.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uLanguage"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="28"/>
+        <CursorPos X="32" Y="42"/>
+        <UsageCount Value="57"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uversion.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uVersion"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="13"/>
+        <CursorPos X="14" Y="15"/>
+        <UsageCount Value="28"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="UFilter.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="26" Y="3"/>
+        <UsageCount Value="16"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="UEditFields.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="21" Y="5"/>
+        <UsageCount Value="16"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\lcl\include\control.inc"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="3602"/>
+        <CursorPos Y="3609"/>
+        <UsageCount Value="12"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\win\sysutils.pp"/>
+        <UnitName Value="SysUtils"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="75"/>
+        <CursorPos X="17" Y="82"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="utools.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uTools"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="6"/>
+        <TopLine Value="35"/>
+        <CursorPos X="5" Y="50"/>
+        <UsageCount Value="27"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ucopytext.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uCopyText"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="12"/>
+        <CursorPos X="20" Y="18"/>
+        <UsageCount Value="25"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\win\wininc\ascdef.inc"/>
+        <EditorIndex Value="1"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="29">
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="399" Column="44" TopLine="395"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="400" Column="58" TopLine="390"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="401" Column="58" TopLine="391"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="402" Column="58" TopLine="392"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="407" Column="58" TopLine="397"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="307" Column="24" TopLine="303"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="212" Column="25" TopLine="193"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="214" Column="23" TopLine="198"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="975" Column="34" TopLine="964"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="980" Column="10" TopLine="965"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="976" TopLine="965"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="977" TopLine="966"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="978" TopLine="967"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="979" Column="49" TopLine="969"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="986" Column="49" TopLine="976"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="880" Column="21" TopLine="876"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="882" TopLine="870"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="888" Column="25" TopLine="871"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="896" Column="25" TopLine="893"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="904" Column="32" TopLine="893"/>
+      </Position>
+      <Position>
+        <Filename Value="usetup.pas"/>
+        <Caret Line="131" Column="24" TopLine="119"/>
+      </Position>
+      <Position>
+        <Filename Value="usetup.pas"/>
+        <Caret Line="7"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="950" Column="49" TopLine="934"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="864" Column="32" TopLine="855"/>
+      </Position>
+      <Position>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\win\wininc\ascdef.inc"/>
+        <Caret Line="124" Column="10" TopLine="114"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="860" Column="33" TopLine="855"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="13" TopLine="11"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="10" Column="17"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="863" Column="3" TopLine="853"/>
+      </Position>
+      <Position>
+        <Filename Value="utools.pas"/>
+        <Caret Line="61" Column="30" TopLine="50"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+  <Debugging>
+    <BreakPoints>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="uversion.pas"/>
+        <Line Value="24"/>
+      </Item>
+    </BreakPoints>
+  </Debugging>
+</CONFIG>

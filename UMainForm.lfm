@@ -3,9 +3,9 @@ object FMainForm: TFMainForm
   Height = 618
   Top = 169
   Width = 1219
-  Caption = 'Format row'
-  ClientHeight = 618
-  ClientWidth = 1219
+  Caption = 'HBB Convert'
+  ClientHeight = 0
+  ClientWidth = 0
   Color = clBtnFace
   Font.Color = clWindowText
   Font.Height = -12
@@ -1101,11 +1101,11 @@ object FMainForm: TFMainForm
     Height = 522
     Top = 75
     Width = 309
-    ActivePage = TSMiscellaneous
+    ActivePage = TSCopy
     Align = alRight
     BorderSpacing.Around = 3
     MultiLine = True
-    TabIndex = 5
+    TabIndex = 6
     TabOrder = 1
     OnChange = DataChangePreView
     Options = [nboMultiLine]
@@ -2407,6 +2407,250 @@ object FMainForm: TFMainForm
           OnChange = DataChangePreView
           TabOrder = 4
         end
+      end
+    end
+    object TSCopy: TTabSheet
+      Caption = 'Copy'
+      ClientHeight = 474
+      ClientWidth = 301
+      object Label1: TLabel
+        Left = 3
+        Height = 14
+        Top = 3
+        Width = 295
+        Align = alTop
+        BorderSpacing.Around = 3
+        Caption = 'Copy text to {2}'
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Verdana'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Panel18: TPanel
+        Left = 13
+        Height = 28
+        Top = 20
+        Width = 275
+        Align = alTop
+        BorderSpacing.Left = 10
+        BorderSpacing.Right = 10
+        BorderSpacing.Around = 3
+        BevelOuter = bvNone
+        ClientHeight = 28
+        ClientWidth = 275
+        Color = clNone
+        ParentBackground = False
+        ParentColor = False
+        TabOrder = 0
+        object ECopyFrom02: TEdit
+          Left = 34
+          Height = 22
+          Top = 3
+          Width = 110
+          Align = alLeft
+          BorderSpacing.Around = 3
+          TabOrder = 0
+          OnChange = DataChangePreView
+        end
+        object ECopyTo02: TEdit
+          Left = 162
+          Height = 22
+          Top = 3
+          Width = 110
+          Align = alClient
+          BorderSpacing.Around = 3
+          TabOrder = 1
+          OnChange = DataChangePreView
+        end
+        object Label2: TLabel
+          Left = 147
+          Height = 22
+          Top = 3
+          Width = 12
+          Align = alLeft
+          BorderSpacing.Around = 3
+          Caption = 'To'
+          Layout = tlCenter
+        end
+        object Label3: TLabel
+          Left = 3
+          Height = 22
+          Top = 3
+          Width = 28
+          Align = alLeft
+          BorderSpacing.Around = 3
+          Caption = 'From'
+          Layout = tlCenter
+        end
+      end
+      object Label4: TLabel
+        Left = 3
+        Height = 14
+        Top = 99
+        Width = 295
+        Align = alTop
+        BorderSpacing.Around = 3
+        Caption = 'Copy text to {4}'
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Verdana'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label5: TLabel
+        Left = 3
+        Height = 14
+        Top = 51
+        Width = 295
+        Align = alTop
+        BorderSpacing.Around = 3
+        Caption = 'Copy text to {3}'
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Verdana'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Panel19: TPanel
+        Left = 13
+        Height = 28
+        Top = 116
+        Width = 275
+        Align = alTop
+        BorderSpacing.Left = 10
+        BorderSpacing.Right = 10
+        BorderSpacing.Around = 3
+        BevelOuter = bvNone
+        ClientHeight = 28
+        ClientWidth = 275
+        Color = clNone
+        ParentBackground = False
+        ParentColor = False
+        TabOrder = 1
+        object ECopyFrom04: TEdit
+          Left = 34
+          Height = 22
+          Top = 3
+          Width = 110
+          Align = alLeft
+          BorderSpacing.Around = 3
+          TabOrder = 0
+          OnChange = DataChangePreView
+        end
+        object ECopyTo04: TEdit
+          Left = 162
+          Height = 22
+          Top = 3
+          Width = 110
+          Align = alClient
+          BorderSpacing.Around = 3
+          TabOrder = 1
+          OnChange = DataChangePreView
+        end
+        object Label6: TLabel
+          Left = 147
+          Height = 22
+          Top = 3
+          Width = 12
+          Align = alLeft
+          BorderSpacing.Around = 3
+          Caption = 'To'
+          Layout = tlCenter
+        end
+        object Label7: TLabel
+          Left = 3
+          Height = 22
+          Top = 3
+          Width = 28
+          Align = alLeft
+          BorderSpacing.Around = 3
+          Caption = 'From'
+          Layout = tlCenter
+        end
+      end
+      object Panel20: TPanel
+        Left = 13
+        Height = 28
+        Top = 68
+        Width = 275
+        Align = alTop
+        BorderSpacing.Left = 10
+        BorderSpacing.Right = 10
+        BorderSpacing.Around = 3
+        BevelOuter = bvNone
+        ClientHeight = 28
+        ClientWidth = 275
+        Color = clNone
+        ParentBackground = False
+        ParentColor = False
+        TabOrder = 2
+        object ECopyFrom03: TEdit
+          Left = 34
+          Height = 22
+          Top = 3
+          Width = 110
+          Align = alLeft
+          BorderSpacing.Around = 3
+          TabOrder = 0
+          OnChange = DataChangePreView
+        end
+        object ECopyTo03: TEdit
+          Left = 162
+          Height = 22
+          Top = 3
+          Width = 110
+          Align = alClient
+          BorderSpacing.Around = 3
+          TabOrder = 1
+          OnChange = DataChangePreView
+        end
+        object Label8: TLabel
+          Left = 147
+          Height = 22
+          Top = 3
+          Width = 12
+          Align = alLeft
+          BorderSpacing.Around = 3
+          Caption = 'To'
+          Layout = tlCenter
+        end
+        object Label10: TLabel
+          Left = 3
+          Height = 22
+          Top = 3
+          Width = 28
+          Align = alLeft
+          BorderSpacing.Around = 3
+          Caption = 'From'
+          Layout = tlCenter
+        end
+      end
+      object Label12: TLabel
+        Left = 3
+        Height = 14
+        Top = 147
+        Width = 295
+        Align = alTop
+        BorderSpacing.Around = 3
+        Caption = 'Info'
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Verdana'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label14: TLabel
+        Left = 13
+        Height = 15
+        Top = 164
+        Width = 275
+        Align = alTop
+        BorderSpacing.Left = 10
+        BorderSpacing.Right = 10
+        BorderSpacing.Around = 3
+        Caption = 'Set {2},{3} or {4}'
+        WordWrap = True
       end
     end
   end
@@ -4036,6 +4280,13 @@ object FMainForm: TFMainForm
       object N2: TMenuItem
         Caption = '-'
       end
+      object MenuItem2: TMenuItem
+        Caption = 'Import language file.'
+        OnClick = MenuItem2Click
+      end
+      object Separator1: TMenuItem
+        Caption = '-'
+      end
       object MNAfslut: TMenuItem
         Caption = 'Afslut'
         OnClick = SBExitClick
@@ -4049,6 +4300,32 @@ object FMainForm: TFMainForm
         OnClick = SBExecuteClick
       end
       object N1: TMenuItem
+        Caption = '-'
+      end
+      object MMInsertCode: TMenuItem
+        Caption = 'Insert code'
+        object MMTheEntireStartingLine: TMenuItem
+          Caption = '{1} the entire starting line.'
+          ShortCut = 16433
+          OnClick = MMTheEntireStartingLineClick
+        end
+        object MMCopyTextTo02: TMenuItem
+          Caption = '{2} Copy text to'
+          ShortCut = 16434
+          OnClick = MMCopyTextTo02Click
+        end
+        object MMCopyTextTo03: TMenuItem
+          Caption = '{3} Copy text to'
+          ShortCut = 16435
+          OnClick = MMCopyTextTo03Click
+        end
+        object MMCopyTextTo04: TMenuItem
+          Caption = '{4} Copy text to'
+          ShortCut = 16436
+          OnClick = MMCopyTextTo04Click
+        end
+      end
+      object Separator2: TMenuItem
         Caption = '-'
       end
       object MMRemoveFilter: TMenuItem

@@ -5,7 +5,7 @@ interface
 uses
   SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, ExtCtrls,
   StdCtrls, Buttons, Clipbrd, ComCtrls, Menus, Spin, uFlipText,
-  uReplaceText, uSubRow, uCase, uCSV, uSequencesNo, uSetup
+  uReplaceText, uSubRow, uCase, uCSV, uSequencesNo, uSetup, uTools, uCopyText
   {$IFDEF WINDOWS}
 //  ,ShellApi
   , Windows
@@ -15,11 +15,42 @@ uses
   {$ENDIF}
   ;
 
+const
+  ApplicationName = 'HBB Converter version 1.0.6';
+
 type
 
   { TFMainForm }
 
   TFMainForm = class(TForm)
+    ECopyFrom02: TEdit;
+    ECopyFrom04: TEdit;
+    ECopyFrom03: TEdit;
+    ECopyTo02: TEdit;
+    ECopyTo04: TEdit;
+    ECopyTo03: TEdit;
+    Label1: TLabel;
+    Label10: TLabel;
+    Label12: TLabel;
+    Label14: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    MMInsertCode: TMenuItem;
+    MMTheEntireStartingLine: TMenuItem;
+    MMCopyTextTo02: TMenuItem;
+    MMCopyTextTo03: TMenuItem;
+    MMCopyTextTo04: TMenuItem;
+    Separator2: TMenuItem;
+    Panel18: TPanel;
+    Panel19: TPanel;
+    Panel20: TPanel;
+    Separator1: TMenuItem;
+    MenuItem2: TMenuItem;
     MMHelpOnline: TMenuItem;
     MMHelp: TMenuItem;
     OpenDialog1: TOpenDialog;
@@ -40,6 +71,7 @@ type
     MMRemoveFilter: TMenuItem;
     SBFlipViews: TSpeedButton;
     PageControl1: TPageControl;
+    TSCopy: TTabSheet;
     TSMain: TTabSheet;
     TSSubString: TTabSheet;
     LTSSubStringSelectTextFrom: TLabel;
@@ -189,6 +221,11 @@ type
     SpinEdit3: TSpinEdit;
     procedure FormCreate(Sender: TObject);
     procedure MDataInChange(Sender: TObject);
+    procedure MenuItem2Click(Sender: TObject);
+    procedure MMTheEntireStartingLineClick(Sender: TObject);
+    procedure MMCopyTextTo02Click(Sender: TObject);
+    procedure MMCopyTextTo03Click(Sender: TObject);
+    procedure MMCopyTextTo04Click(Sender: TObject);
     procedure SBHelpClick(Sender: TObject);
     procedure SBExecuteClick(Sender: TObject);
     procedure SBExitClick(Sender: TObject);
@@ -259,12 +296,16 @@ function TFMainForm.FormatRow(aRow: string): string;
 var
   preRow: string;
   pResult: string;
+  Copy02: string;
+  Copy03: string;
+  Copy04: string;
 begin
   Result := '';
+  Copy02 := '';
   if aRow = '' then
     exit;
 
-  // Info : Indholder i linje.
+  // Info : Contains in line.
   // Note :
   if ESelectOnlyRowsContainingThis.Text <> '' then
     if pos(ESelectOnlyRowsContainingThis.Text, aRow) <= 0 then
@@ -276,47 +317,55 @@ begin
 
   preRow := aRow;
 
-  // Info : Klip tekst væk fra start af linje
+
+  if GetText(aRow, ECopyFrom02.Text, ECopyTo02.Text,{out} pResult) then
+    Copy02 := pResult;
+  if GetText(aRow, ECopyFrom03.Text, ECopyTo03.Text,{out} pResult) then
+    Copy03 := pResult;
+  if GetText(aRow, ECopyFrom04.Text, ECopyTo04.Text,{out} pResult) then
+    Copy04 := pResult;
+
+  // Info : Cut text away from the start of the line
   // Note :
   if UseRemoveFromStartToText(aRow, Edit5.Text,{out}pResult) then
     aRow := pResult;
 
-  // Info : Klip tekst væk fra slut af linje
+  // Info : Cut text away from end of line
   // Note :
   if UseRemoveTextToEnd(aRow, Edit6.Text,{out} pResult) then
     aRow := pResult;
 
-  // Info : Klip tekst ud
+  // Info : Cut out text
   // Note :
   if UseRemoveTextInText(aRow, Edit13.Text, Edit12.Text, pResult) then
     aRow := pResult;
 
-  // Info : Klip tekst ud
+  // Info : Cut out text
   // Note :
   if UseRemoveTextInText(aRow, Edit10.Text, Edit9.Text, pResult) then
     aRow := pResult;
 
-  // Info : Klip tekst ud
+  // Info : Cut out text
   // Note :
   if UseRemoveTextInText(aRow, Edit8.Text, Edit7.Text, pResult) then
     aRow := pResult;
 
-  // Info : Fjern tekst fra string linje 1
+  // Info : Remove text from string line 1
   // Note :
   if UseRemoveText(aRow, Edit14.Text,{out} pResult) then
     aRow := pResult;
 
-  // Info : Fjern tekst fra string linje 2
+  // Info : Remove text from string line 2
   // Note :
   if UseRemoveText(aRow, Edit16.Text,{out} pResult) then
     aRow := pResult;
 
-  // Info : Fjern tekst fra string linje 3
+  // Info : Remove text from string line 3
   // Note :
   if UseRemoveText(aRow, Edit15.Text,{out} pResult) then
     aRow := pResult;
 
-  // Info : Flip tekst rundt om denne tekst
+  // Info : Flip text around this text
   // Note :
   if FlipTextAroundThisText(aRow, Edit20.Text, Edit22.Text, Edit21.Text, pResult) then
     aRow := pResult;
@@ -359,7 +408,7 @@ begin
     aRow := pResult;
 
 
-  // Info : Set første karakter til upper/Lower case
+  // Info : Set first character to upper/lower case
   // Note :
   if UseSetFirstLetterCase(aRow, CBTSCaseFirstCharInRow.Checked,
     RBTSCaseRowUpperCase.Checked, CBTSCaseGoToNextLetteIfNotALetterRow.Checked,
@@ -369,7 +418,7 @@ begin
     aRow := pResult;
 
 
-  // Info : Insæt fortløbene nr efter x
+  // Info : Insert consecutive numbers after x
   // Note :
   if SetSequencesNo(MDataIn.Text, Edit24.Text, SpinEdit2.Value,
     SpinEdit3.Value, pResult) then
@@ -377,6 +426,9 @@ begin
 
 
   aRow := StringReplace(arow, '{1}', preRow, [rfReplaceAll]);
+  aRow := StringReplace(arow, '{2}', Copy02, [rfReplaceAll]);
+  aRow := StringReplace(arow, '{3}', Copy03, [rfReplaceAll]);
+  aRow := StringReplace(arow, '{4}', Copy04, [rfReplaceAll]);
   Result := aRow;
 end;
 
@@ -794,12 +846,62 @@ begin
     end;
 end;
 
+procedure TFMainForm.MenuItem2Click(Sender: TObject);
+var
+  Setup: Tsetup;
+begin
+  // Info : Open dialog and find language file.
+  // Note :
+  if not OpenDialog1.Execute then
+    exit;
 
+  Setup := Tsetup.Create();
+
+  // Info : Copy language file to setup folder.
+  // Note :
+  CopyFile2(OpenDialog1.FileName,Format(setup.GetSettingsFilePath(), [ExtractFileName(OpenDialog1.FileName)]));
+
+  // Info : Save new language to ini file.
+  // Note :
+  setup.SetLanguage(ExtractFileName(OpenDialog1.FileName));
+
+  // Info : Message to user, restart program.
+  // Note :
+  if MessageDlg(Setup.Language.MsgProgramMustBeRestartedDoYouWantToRestartTheProgram, mtInformation, [mbYes, mbNo], 0) = mrYes then
+    RestartApplication();
+end;
+
+procedure TFMainForm.MMTheEntireStartingLineClick(Sender: TObject);
+begin
+  MDataIn.SelStart := MDataIn.SelStart;
+  MDataIn.SelText := '{1}';
+end;
+
+procedure TFMainForm.MMCopyTextTo02Click(Sender: TObject);
+begin
+  MDataIn.SelStart := MDataIn.SelStart;
+  MDataIn.SelText := '{2}';
+
+end;
+
+procedure TFMainForm.MMCopyTextTo03Click(Sender: TObject);
+begin
+  MDataIn.SelStart := MDataIn.SelStart;
+  MDataIn.SelText := '{3}';
+end;
+
+procedure TFMainForm.MMCopyTextTo04Click(Sender: TObject);
+begin
+  MDataIn.SelStart := MDataIn.SelStart;
+  MDataIn.SelText := '{4}';
+end;
 
 procedure TFMainForm.FormCreate(Sender: TObject);
 var
   setup: Tsetup;
 begin
+  Caption := ApplicationName;
+
   setup := Tsetup.Create();
   PShowPreviewInfo.Visible := setup.ShowPreview;
   PShowPreviewInfo.Caption := format(setup.Language.PanelPreViewInfo, [setup.PreViewNumberOfRows]);
@@ -834,7 +936,12 @@ begin
   MMShowDataIn.Caption := setup.Language.MainMenuShowDataIn;
   MMShowDataOut.Caption := setup.Language.MainMenuShowDataOut;
   MMNormalView.Caption := setup.Language.MainMenuNormalView;
+  MMInsertCode.Caption:=setup.Language.MainMenuInsertCode;
+  MMTheEntireStartingLine.Caption:='{1} '+setup.Language.MainMenuTheEntireStartingLine;
 
+  MMCopyTextTo02.Caption:='{2} '+setup.Language.MainMenuCopyTextTo;
+  MMCopyTextTo03.Caption:='{3} '+setup.Language.MainMenuCopyTextTo;
+  MMCopyTextTo04.Caption:='{4} '+setup.Language.MainMenuCopyTextTo;
   // Info :Main
   // Note :
   TSMain.Caption := setup.Language.TabSheetMainHeader;
@@ -889,6 +996,20 @@ begin
   LTSMiscellaneousCreateNumberOfLinesPerInputLine.Caption := setup.Language.TabSheetMiscellaneousCreateNumberOfLinesPerInputLine;
   CBTSMiscellaneousIgnoreOtherRows.Caption := setup.Language.TabSheetMiscellaneousIgnoreOtherRows;
   CBTSMiscellaneousSumAllLinesToATotal.Caption := setup.Language.TabSheetMiscellaneousSumAllLinesToATotal;
+
+  TSCopy.Caption := setup.Language.Copy;
+  Label3.Caption := setup.Language.From;
+  Label2.Caption := setup.Language.To_;
+  Label10.Caption := setup.Language.From;
+  Label8.Caption := setup.Language.To_;
+  Label7.Caption := setup.Language.From;
+  Label6.Caption := setup.Language.To_;
+
+  Label1.Caption := Setup.Language.TabSheetCopyCopyTextTo + ' {2}';
+  Label5.Caption := Setup.Language.TabSheetCopyCopyTextTo + ' {3}';
+  Label4.Caption := Setup.Language.TabSheetCopyCopyTextTo + ' {4}';
+  Label14.Caption := Setup.Language.MsgInsertCode2InYourDataInputOrInVonvateringsFilterCode2WillBeReplacedWithTheCopiedText;
+  Label12.Caption := setup.Language.info;
 end;
 
 
