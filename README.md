@@ -24,8 +24,8 @@ HBB Converter
 
 ## Easy Installation
 Download file and run it, no installation.
-- [Windows bin file v1.0.6](https://github.com/HBBStar95/Release/v1.0.6/x86-64/Win/HBBConverter.exe)
-- [Linux bin file v1.0.6](https://github.com/HBBStar95/Release/v1.0.6/x86-64/Linux/HBBConverter.exe)
+- [Windows bin file v1.0.6](https://github.com/HBBStar95/HBBConverter/blob/main/Release/v1.0.6/x86-64/Win/HBBConverter.exe)
+- [Linux bin file v1.0.6](https://github.com/HBBStar95/HBBConverter/blob/main/Release/v1.0.6/x86-64/Linux/HBBConverter)
 ## Language
 - [English](https://github.com/HBBStar95/HBBConverter/Translate\en-GB.ini)
 - [Spanish](https://github.com/HBBStar95/HBBConverter/Translate\es-ES.ini) 

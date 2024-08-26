@@ -554,7 +554,12 @@ begin
   Edit15.Text := '';
   ESelectOnlyRowsContainingThis.Text := '';
   CBTSMiscellaneousIgnoreOtherRows.Checked := False;
-
+  ECopyFrom02.Text := '';
+  ECopyFrom03.Text := '';
+  ECopyFrom04.Text := '';
+  ECopyTo02.Text := '';
+  ECopyTo03.Text := '';
+  ECopyTo04.Text := '';
 end;
 
 procedure TFMainForm.SBDataOutlignTextRightClick(Sender: TObject);
@@ -783,7 +788,7 @@ procedure TFMainForm.SBHelpClick(Sender: TObject);
 var
   URL: string;
 begin
-  URL := 'https://gitlab.com/Star95/format-rows/-/wikis/Format-rows';
+  URL := 'https://github.com/HBBStar95/HBBConverter/wiki';
   {$IFDEF WINDOWS}
   ShellExecute(0, 'open',PChar(URL) , nil, nil, SW_SHOWNORMAL);
   {$ENDIF}
@@ -827,7 +832,7 @@ begin
       ProgressBar1.Position := I;
       ProgressBar1.Update;
       MDataOut.Lines.Add(FormatRow(MDataIn.Lines[I]));
-      if i > setup.PreViewNumberOfRows - 1 then
+      if i > setup.PreViewNumberOfRows - 2 then
         break;
     end;
   end
@@ -841,7 +846,7 @@ begin
         MDataOut.Lines.Add(FormatRow(LVMultiselect.Items[I].Caption))
       else
         MDataOut.Lines.Add(LVMultiselect.Items[I].Caption);
-      if i > setup.PreViewNumberOfRows - 1 then
+      if i > setup.PreViewNumberOfRows - 2 then
         break;
     end;
 end;
@@ -859,7 +864,7 @@ begin
 
   // Info : Copy language file to setup folder.
   // Note :
-  CopyFile2(OpenDialog1.FileName,Format(setup.GetSettingsFilePath(), [ExtractFileName(OpenDialog1.FileName)]));
+  CopyFile2(OpenDialog1.FileName, Format(setup.GetSettingsFilePath(), [ExtractFileName(OpenDialog1.FileName)]));
 
   // Info : Save new language to ini file.
   // Note :
@@ -936,12 +941,12 @@ begin
   MMShowDataIn.Caption := setup.Language.MainMenuShowDataIn;
   MMShowDataOut.Caption := setup.Language.MainMenuShowDataOut;
   MMNormalView.Caption := setup.Language.MainMenuNormalView;
-  MMInsertCode.Caption:=setup.Language.MainMenuInsertCode;
-  MMTheEntireStartingLine.Caption:='{1} '+setup.Language.MainMenuTheEntireStartingLine;
+  MMInsertCode.Caption := setup.Language.MainMenuInsertCode;
+  MMTheEntireStartingLine.Caption := '{1} ' + setup.Language.MainMenuTheEntireStartingLine;
 
-  MMCopyTextTo02.Caption:='{2} '+setup.Language.MainMenuCopyTextTo;
-  MMCopyTextTo03.Caption:='{3} '+setup.Language.MainMenuCopyTextTo;
-  MMCopyTextTo04.Caption:='{4} '+setup.Language.MainMenuCopyTextTo;
+  MMCopyTextTo02.Caption := '{2} ' + setup.Language.MainMenuCopyTextTo;
+  MMCopyTextTo03.Caption := '{3} ' + setup.Language.MainMenuCopyTextTo;
+  MMCopyTextTo04.Caption := '{4} ' + setup.Language.MainMenuCopyTextTo;
   // Info :Main
   // Note :
   TSMain.Caption := setup.Language.TabSheetMainHeader;
@@ -1050,6 +1055,11 @@ begin
   MDataIn.Text := tmp;
   if LVMultiselect.Visible then
     SBMultiSelectClick(Sender);
+
+  // Info : Clear filter
+  MMRemoveFilterClick(Sender);
+  if MDataIn.Visible then
+   MDataIn.SetFocus();
 
 end;
 

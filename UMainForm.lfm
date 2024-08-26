@@ -4,8 +4,8 @@ object FMainForm: TFMainForm
   Top = 169
   Width = 1219
   Caption = 'HBB Convert'
-  ClientHeight = 0
-  ClientWidth = 0
+  ClientHeight = 618
+  ClientWidth = 1219
   Color = clBtnFace
   Font.Color = clWindowText
   Font.Height = -12
