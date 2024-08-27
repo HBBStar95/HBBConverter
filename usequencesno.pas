@@ -26,12 +26,12 @@ begin
     exit;
   stl := TStringList.Create();
   CountNo := aStartNo;
-  for I := 0 to aNumber - 1 do
+  for I := 0 to aNumber  do
   begin
 
     tmpRow := StringReplace(aTextIn, aSetNoAfter, aSetNoAfter + IntToStr(CountNo), []);
     Inc(CountNo);
-    if I < aNumber - 1 then
+    if I < aNumber then
       stl.Add(tmpRow);
   end;
   aResult:= stl.Text;

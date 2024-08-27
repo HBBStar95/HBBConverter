@@ -9,10 +9,9 @@ uses
 
 function UseRemoveFromStartToText(aRow, aText: string; out aResult: string): boolean;
 function UseRemoveTextToEnd(aRow, aText: string; out aResult: string): boolean;
-function UseRemoveTextInText(aRow, aFromText, aToText: string;
-  out aResult: string): boolean;
+function UseRemoveTextInText(aRow, aFromText, aToText: string; out aResult: string): boolean;
 function UseRemoveText(aRow, aText: string; out aResult: string): boolean;
-function UseRemoveNumberOfChars(aRow: string; aNumber: integer;out aResult:String): boolean;
+function UseRemoveNumberOfChars(aRow: string; aNumber: integer; out aResult: string): boolean;
 
 
 implementation
@@ -31,17 +30,24 @@ begin
     aResult := copy(aRow, 0, pos(aText, aRow) + length(aText) - 1);
 end;
 
-function UseRemoveTextInText(aRow, aFromText, aToText: string;
-  out aResult: string): boolean;
+function UseRemoveTextInText(aRow, aFromText, aToText: string; out aResult: string): boolean;
 var
-  tmpRow: string;
+  before: string;
+  after: string;
+  beforePos: integer;
+  afterPos: integer;
 begin
 
   Result := (pos(aFromText, aRow) > 0) and (pos(aToText, aRow) > 0);
   if Result then
   begin
-    tmpRow := copy(aRow, 0, pos(aFromText, aRow) - length(aFromText));
-    aResult := tmpRow + copy(aRow, pos(aToText, aRow) + length(aToText), length(aRow));
+    beforePos := pos(aFromText, aRow) - 1;
+    afterPos := pos(aToText, aRow) + length(aToText);
+
+    before := copy(aRow, 0, BeforePos);
+    after := copy(aRow, AfterPos, length(aRow));
+
+    aResult := before + after;
   end;
 
 end;
@@ -53,7 +59,7 @@ begin
     aResult := StringReplace(aRow, aText, '', [rfReplaceAll]);
 end;
 
-function UseRemoveNumberOfChars(aRow: string; aNumber: integer;out aResult:String): boolean;
+function UseRemoveNumberOfChars(aRow: string; aNumber: integer; out aResult: string): boolean;
 begin
   Result := False;
   if aNumber <= 0 then

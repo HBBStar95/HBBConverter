@@ -16,7 +16,7 @@ uses
   ;
 
 const
-  ApplicationName = 'HBB Converter version 1.0.6';
+  ApplicationName = 'HBB Converter version 1.0.7';
 
 type
 
@@ -811,8 +811,6 @@ begin
   setup := Tsetup.Create();
   if not setup.ShowPreview then
     exit;
-
-
 
 
   if FlipedText then

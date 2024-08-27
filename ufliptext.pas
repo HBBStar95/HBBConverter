@@ -7,14 +7,12 @@ interface
 uses
   Classes, SysUtils, uRemoveText;
 
-function FlipTextAroundThisText(aRow, aText, aRemoveTextEnd, aAddTextToEnd: string;
-  out aResult: string): boolean;
+function FlipTextAroundThisText(aRow, aText, aRemoveTextEnd, aAddTextToEnd: string; out aResult: string): boolean;
 
 implementation
 
 
-function FlipTextAroundThisText(aRow, aText, aRemoveTextEnd, aAddTextToEnd: string;
-  out aResult: string): boolean;
+function FlipTextAroundThisText(aRow, aText, aRemoveTextEnd, aAddTextToEnd: string; out aResult: string): boolean;
 var
   pResult: string;
   preTekst: string;
@@ -31,11 +29,10 @@ begin
   if UseRemoveText(rearTekst, aText, pResult) then
     rearTekst := pResult;
 
-  if UseRemoveTextToEnd(preTekst, aRemoveTextEnd, pResult) then
-    preTekst := pResult;
+  rearTekst := StringReplace(rearTekst, aRemoveTextEnd, '', []);
 
   if aAddTextToEnd = '' then
-    aResult := rearTekst + aText + preTekst + aRemoveTextEnd
+    aResult := rearTekst + aText + preTekst
   else
     aResult := rearTekst + aText + preTekst + aAddTextToEnd;
   Result := True;

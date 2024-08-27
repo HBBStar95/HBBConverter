@@ -1101,11 +1101,11 @@ object FMainForm: TFMainForm
     Height = 522
     Top = 75
     Width = 309
-    ActivePage = TSCopy
+    ActivePage = TSMiscellaneous
     Align = alRight
     BorderSpacing.Around = 3
     MultiLine = True
-    TabIndex = 6
+    TabIndex = 5
     TabOrder = 1
     OnChange = DataChangePreView
     Options = [nboMultiLine]
