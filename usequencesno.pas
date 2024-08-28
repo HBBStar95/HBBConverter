@@ -28,7 +28,6 @@ begin
   CountNo := aStartNo;
   for I := 0 to aNumber  do
   begin
-
     tmpRow := StringReplace(aTextIn, aSetNoAfter, aSetNoAfter + IntToStr(CountNo), []);
     Inc(CountNo);
     if I < aNumber then
