@@ -16,7 +16,7 @@ uses
   ;
 
 const
-  ApplicationName = 'HBB Converter version 1.0.7';
+  ApplicationName = 'HBB Converter version 1.0.8';
 
 type
 
@@ -29,6 +29,9 @@ type
     ECopyTo02: TEdit;
     ECopyTo04: TEdit;
     ECopyTo03: TEdit;
+    Edit25: TEdit;
+    Edit26: TEdit;
+    Edit27: TEdit;
     Label1: TLabel;
     Label10: TLabel;
     Label12: TLabel;
@@ -40,6 +43,7 @@ type
     Label6: TLabel;
     Label7: TLabel;
     Label8: TLabel;
+    LTSMiscellaneousNewLine: TLabel;
     MMInsertCode: TMenuItem;
     MMTheEntireStartingLine: TMenuItem;
     MMCopyTextTo02: TMenuItem;
@@ -429,6 +433,11 @@ begin
   aRow := StringReplace(arow, '{2}', Copy02, [rfReplaceAll]);
   aRow := StringReplace(arow, '{3}', Copy03, [rfReplaceAll]);
   aRow := StringReplace(arow, '{4}', Copy04, [rfReplaceAll]);
+
+  aRow := StringReplace(aRow,Edit25.Caption,#13#10,[rfReplaceAll]);
+  aRow := StringReplace(aRow,Edit26.Caption,#13#10,[rfReplaceAll]);
+  aRow := StringReplace(aRow,Edit27.Caption,#13#10,[rfReplaceAll]);
+
   Result := aRow;
 end;
 
@@ -999,6 +1008,7 @@ begin
   LTSMiscellaneousCreateNumberOfLinesPerInputLine.Caption := setup.Language.TabSheetMiscellaneousCreateNumberOfLinesPerInputLine;
   CBTSMiscellaneousIgnoreOtherRows.Caption := setup.Language.TabSheetMiscellaneousIgnoreOtherRows;
   CBTSMiscellaneousSumAllLinesToATotal.Caption := setup.Language.TabSheetMiscellaneousSumAllLinesToATotal;
+  LTSMiscellaneousNewLine.Caption:= setup.Language.TabSheetMiscellaneousNewLine;
 
   TSCopy.Caption := setup.Language.Copy;
   Label3.Caption := setup.Language.From;

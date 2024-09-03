@@ -90,6 +90,7 @@ type
     FMsgProgramMustBeRestartedDoYouWantToRestartTheProgram: string;
     FMsgNotPossibleToCopyFileToSetupFolder: string;
     FMsgInsertCode2InYourDataInputOrInVonvateringsFilterCode2WillBeReplacedWithTheCopiedText: string;
+    FTabSheetMiscellaneousNewLine:String;
   public
   published
     property PanelPreViewInfo: string read FPanelPreViewInfo write FPanelPreViewInfo;
@@ -183,6 +184,7 @@ type
 
     property MsgNotPossibleToCopyFileToSetupFolder: string read FMsgNotPossibleToCopyFileToSetupFolder write FMsgNotPossibleToCopyFileToSetupFolder;
     property MsgInsertCode2InYourDataInputOrInVonvateringsFilterCode2WillBeReplacedWithTheCopiedText: string read FMsgInsertCode2InYourDataInputOrInVonvateringsFilterCode2WillBeReplacedWithTheCopiedText write FMsgInsertCode2InYourDataInputOrInVonvateringsFilterCode2WillBeReplacedWithTheCopiedText;
+    property TabSheetMiscellaneousNewLine:string read FTabSheetMiscellaneousNewLine write FTabSheetMiscellaneousNewLine;
 
   end;
 

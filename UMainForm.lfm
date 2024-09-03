@@ -4,8 +4,8 @@ object FMainForm: TFMainForm
   Top = 169
   Width = 1219
   Caption = 'HBB Convert'
-  ClientHeight = 618
-  ClientWidth = 1219
+  ClientHeight = 0
+  ClientWidth = 0
   Color = clBtnFace
   Font.Color = clWindowText
   Font.Height = -12
@@ -2248,7 +2248,7 @@ object FMainForm: TFMainForm
         Top = 0
         Width = 301
         HorzScrollBar.Page = 286
-        VertScrollBar.Page = 198
+        VertScrollBar.Page = 293
         Align = alClient
         BorderStyle = bsNone
         ClientHeight = 474
@@ -2406,6 +2406,56 @@ object FMainForm: TFMainForm
           BorderSpacing.Around = 3
           OnChange = DataChangePreView
           TabOrder = 4
+        end
+        object LTSMiscellaneousNewLine: TLabel
+          Left = 3
+          Height = 14
+          Top = 198
+          Width = 295
+          Align = alTop
+          BorderSpacing.Around = 3
+          Caption = 'Udskift med linjeskift'
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Verdana'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Edit25: TEdit
+          Left = 13
+          Height = 23
+          Top = 215
+          Width = 275
+          Align = alTop
+          BorderSpacing.Left = 10
+          BorderSpacing.Right = 10
+          BorderSpacing.Around = 3
+          TabOrder = 5
+          OnChange = DataChangePreView
+        end
+        object Edit26: TEdit
+          Left = 13
+          Height = 23
+          Top = 241
+          Width = 275
+          Align = alTop
+          BorderSpacing.Left = 10
+          BorderSpacing.Right = 10
+          BorderSpacing.Around = 3
+          TabOrder = 6
+          OnChange = DataChangePreView
+        end
+        object Edit27: TEdit
+          Left = 13
+          Height = 23
+          Top = 267
+          Width = 275
+          Align = alTop
+          BorderSpacing.Left = 10
+          BorderSpacing.Right = 10
+          BorderSpacing.Around = 3
+          TabOrder = 7
+          OnChange = DataChangePreView
         end
       end
     end

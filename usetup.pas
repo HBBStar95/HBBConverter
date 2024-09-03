@@ -181,6 +181,7 @@ begin
     Language.TabSheetMiscellaneousCreateNumberOfLinesPerInputLine := getString('TabSheetMiscellaneous', 'TabSheetMiscellaneousCreateNumberOfLinesPerInputLine', 'Create number of lines per input line.');
     Language.TabSheetMiscellaneousIgnoreOtherRows := getString('TabSheetMiscellaneous', 'TabSheetMiscellaneousIgnoreOtherRows', 'Ignore other rows.');
     Language.TabSheetMiscellaneousSumAllLinesToATotal := getString('TabSheetMiscellaneous', 'TabSheetMiscellaneousSumAllLinesToATotal', 'Sum all lines to a total.');
+    Language.TabSheetMiscellaneousNewLine := getString('TabSheetMiscellaneous', 'TabSheetMiscellaneousNewLine', 'Replace with line breaks');
 
     Language.TabSheetCopyCopyTextTo:= getString('TabSheetCopy', 'TabSheetCopyCopyTextTo', 'Copy text to');
     Language.MsgProgramMustBeRestartedDoYouWantToRestartTheProgram:= getString('Message', 'ProgramMustBeRestartedDoYouWantToRestartTheProgram', 'Program must be restarted. Do you want to restart the program?');
