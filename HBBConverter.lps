@@ -20,7 +20,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <CursorPos X="49" Y="19"/>
+        <TopLine Value="740"/>
+        <CursorPos X="40" Y="745"/>
         <ComponentState Value="1"/>
         <UsageCount Value="107"/>
         <Loaded Value="True"/>
@@ -191,78 +192,6 @@
     </Units>
     <JumpHistory HistoryIndex="29">
       <Position>
-        <Filename Value="usequencesno.pas"/>
-        <Caret Line="35" TopLine="20"/>
-      </Position>
-      <Position>
-        <Filename Value="usequencesno.pas"/>
-        <Caret Line="29" TopLine="20"/>
-      </Position>
-      <Position>
-        <Filename Value="usequencesno.pas"/>
-        <Caret Line="32" TopLine="20"/>
-      </Position>
-      <Position>
-        <Filename Value="usequencesno.pas"/>
-        <Caret Line="33" TopLine="20"/>
-      </Position>
-      <Position>
-        <Filename Value="usequencesno.pas"/>
-        <Caret Line="34" TopLine="20"/>
-      </Position>
-      <Position>
-        <Filename Value="usequencesno.pas"/>
-        <Caret Line="35" TopLine="20"/>
-      </Position>
-      <Position>
-        <Filename Value="usequencesno.pas"/>
-        <Caret Line="29" TopLine="20"/>
-      </Position>
-      <Position>
-        <Filename Value="usequencesno.pas"/>
-        <Caret Line="32" TopLine="20"/>
-      </Position>
-      <Position>
-        <Filename Value="usequencesno.pas"/>
-        <Caret Line="33" TopLine="20"/>
-      </Position>
-      <Position>
-        <Filename Value="usequencesno.pas"/>
-        <Caret Line="34" TopLine="20"/>
-      </Position>
-      <Position>
-        <Filename Value="usequencesno.pas"/>
-        <Caret Line="35" TopLine="20"/>
-      </Position>
-      <Position>
-        <Filename Value="usequencesno.pas"/>
-        <Caret Line="29" TopLine="20"/>
-      </Position>
-      <Position>
-        <Filename Value="usequencesno.pas"/>
-        <Caret Line="32" TopLine="20"/>
-      </Position>
-      <Position>
-        <Filename Value="usequencesno.pas"/>
-        <Caret Line="33" TopLine="20"/>
-      </Position>
-      <Position>
-        <Filename Value="usequencesno.pas"/>
-        <Caret Line="34" TopLine="20"/>
-      </Position>
-      <Position>
-        <Filename Value="usequencesno.pas"/>
-        <Caret Line="35" TopLine="20"/>
-      </Position>
-      <Position>
-        <Filename Value="usequencesno.pas"/>
-        <Caret Line="29" TopLine="20"/>
-      </Position>
-      <Position>
-        <Filename Value="usequencesno.pas"/>
-        <Caret Line="37" Column="9" TopLine="20"/>
-      </Position>
-      <Position>
         <Filename Value="UMainForm.pas"/>
         <Caret Line="423" Column="41" TopLine="413"/>
       </Position>
@@ -304,11 +233,83 @@
       </Position>
       <Position>
         <Filename Value="UMainForm.pas"/>
-        <Caret Line="753" Column="20" TopLine="756"/>
+        <Caret Line="430" Column="57" TopLine="421"/>
       </Position>
       <Position>
         <Filename Value="UMainForm.pas"/>
-        <Caret Line="430" Column="57" TopLine="421"/>
+        <Caret Line="16" Column="15"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="792" Column="37" TopLine="782"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="748" Column="36" TopLine="734"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="751" TopLine="740"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="740" TopLine="737"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="742" TopLine="737"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="743" TopLine="737"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="744" TopLine="737"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="746" TopLine="737"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="747" TopLine="737"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="744" TopLine="737"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="746" TopLine="737"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="747" TopLine="737"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="744" TopLine="737"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="746" TopLine="737"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="747" TopLine="737"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="744" TopLine="737"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="750" TopLine="737"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="751" TopLine="737"/>
       </Position>
     </JumpHistory>
     <RunParams>

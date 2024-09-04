@@ -748,7 +748,7 @@ procedure TFMainForm.SBExecuteClick(Sender: TObject);
       end;
 
       if number <> '' then
-        Result := Result + StrToIntDef(number, 0);
+        Result := Result + StrToFloatDef(number, 0);
 
     end;
 
