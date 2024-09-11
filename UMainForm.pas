@@ -32,6 +32,9 @@ type
     Edit25: TEdit;
     Edit26: TEdit;
     Edit27: TEdit;
+    Edit28: TEdit;
+    Edit29: TEdit;
+    Edit30: TEdit;
     Label1: TLabel;
     Label10: TLabel;
     Label12: TLabel;
@@ -44,6 +47,7 @@ type
     Label7: TLabel;
     Label8: TLabel;
     LTSMiscellaneousNewLine: TLabel;
+    LTSMiscellaneousNewLine1: TLabel;
     MMInsertCode: TMenuItem;
     MMTheEntireStartingLine: TMenuItem;
     MMCopyTextTo02: TMenuItem;
@@ -434,9 +438,9 @@ begin
   aRow := StringReplace(arow, '{3}', Copy03, [rfReplaceAll]);
   aRow := StringReplace(arow, '{4}', Copy04, [rfReplaceAll]);
 
-  aRow := StringReplace(aRow,Edit25.Caption,#13#10,[rfReplaceAll]);
-  aRow := StringReplace(aRow,Edit26.Caption,#13#10,[rfReplaceAll]);
-  aRow := StringReplace(aRow,Edit27.Caption,#13#10,[rfReplaceAll]);
+  aRow := StringReplace(aRow, Edit28.Caption, Edit28.Caption + #13#10, [rfReplaceAll]);
+  aRow := StringReplace(aRow, Edit29.Caption, Edit29.Caption + #13#10, [rfReplaceAll]);
+  aRow := StringReplace(aRow, Edit30.Caption, Edit30.Caption + #13#10, [rfReplaceAll]);
 
   Result := aRow;
 end;
@@ -569,6 +573,12 @@ begin
   ECopyTo02.Text := '';
   ECopyTo03.Text := '';
   ECopyTo04.Text := '';
+  Edit25.Text := '';
+  Edit26.Text := '';
+  Edit27.Text := '';
+  Edit28.Text := '';
+  Edit29.Text := '';
+  Edit30.Text := '';
 end;
 
 procedure TFMainForm.SBDataOutlignTextRightClick(Sender: TObject);
@@ -1008,7 +1018,7 @@ begin
   LTSMiscellaneousCreateNumberOfLinesPerInputLine.Caption := setup.Language.TabSheetMiscellaneousCreateNumberOfLinesPerInputLine;
   CBTSMiscellaneousIgnoreOtherRows.Caption := setup.Language.TabSheetMiscellaneousIgnoreOtherRows;
   CBTSMiscellaneousSumAllLinesToATotal.Caption := setup.Language.TabSheetMiscellaneousSumAllLinesToATotal;
-  LTSMiscellaneousNewLine.Caption:= setup.Language.TabSheetMiscellaneousNewLine;
+  LTSMiscellaneousNewLine.Caption := setup.Language.TabSheetMiscellaneousNewLine;
 
   TSCopy.Caption := setup.Language.Copy;
   Label3.Caption := setup.Language.From;
@@ -1067,7 +1077,7 @@ begin
   // Info : Clear filter
   MMRemoveFilterClick(Sender);
   if MDataIn.Visible then
-   MDataIn.SetFocus();
+    MDataIn.SetFocus();
 
 end;
 

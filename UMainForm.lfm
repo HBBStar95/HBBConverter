@@ -1,11 +1,11 @@
 object FMainForm: TFMainForm
-  Left = -1288
+  Left = -1313
   Height = 618
-  Top = 169
+  Top = 160
   Width = 1219
   Caption = 'HBB Convert'
-  ClientHeight = 0
-  ClientWidth = 0
+  ClientHeight = 618
+  ClientWidth = 1219
   Color = clBtnFace
   Font.Color = clWindowText
   Font.Height = -12
@@ -2248,7 +2248,7 @@ object FMainForm: TFMainForm
         Top = 0
         Width = 301
         HorzScrollBar.Page = 286
-        VertScrollBar.Page = 293
+        VertScrollBar.Page = 388
         Align = alClient
         BorderStyle = bsNone
         ClientHeight = 474
@@ -2455,6 +2455,56 @@ object FMainForm: TFMainForm
           BorderSpacing.Right = 10
           BorderSpacing.Around = 3
           TabOrder = 7
+          OnChange = DataChangePreView
+        end
+        object LTSMiscellaneousNewLine1: TLabel
+          Left = 3
+          Height = 14
+          Top = 293
+          Width = 295
+          Align = alTop
+          BorderSpacing.Around = 3
+          Caption = 'Set linjeskift efter'
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Verdana'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Edit28: TEdit
+          Left = 13
+          Height = 23
+          Top = 310
+          Width = 275
+          Align = alTop
+          BorderSpacing.Left = 10
+          BorderSpacing.Right = 10
+          BorderSpacing.Around = 3
+          TabOrder = 8
+          OnChange = DataChangePreView
+        end
+        object Edit29: TEdit
+          Left = 13
+          Height = 23
+          Top = 336
+          Width = 275
+          Align = alTop
+          BorderSpacing.Left = 10
+          BorderSpacing.Right = 10
+          BorderSpacing.Around = 3
+          TabOrder = 9
+          OnChange = DataChangePreView
+        end
+        object Edit30: TEdit
+          Left = 13
+          Height = 23
+          Top = 362
+          Width = 275
+          Align = alTop
+          BorderSpacing.Left = 10
+          BorderSpacing.Right = 10
+          BorderSpacing.Around = 3
+          TabOrder = 10
           OnChange = DataChangePreView
         end
       end
