@@ -13,7 +13,7 @@ uses
   {$IFDEF UNIX}
   ,Unix
   {$ENDIF}
-  ;
+  , Types;
 
 const
   ApplicationName = 'HBB Converter version 1.0.8';
@@ -53,6 +53,7 @@ type
     MMCopyTextTo02: TMenuItem;
     MMCopyTextTo03: TMenuItem;
     MMCopyTextTo04: TMenuItem;
+    ProgressBar1: TProgressBar;
     Separator2: TMenuItem;
     Panel18: TPanel;
     Panel19: TPanel;
@@ -79,6 +80,8 @@ type
     MMRemoveFilter: TMenuItem;
     SBFlipViews: TSpeedButton;
     PageControl1: TPageControl;
+    StatusBar1: TStatusBar;
+    Timer1: TTimer;
     TSCopy: TTabSheet;
     TSMain: TTabSheet;
     TSSubString: TTabSheet;
@@ -207,7 +210,6 @@ type
     LTSMiscellaneousSelectOnlyRowsContainingThis: TLabel;
     ESelectOnlyRowsContainingThis: TEdit;
     CBTSMiscellaneousIgnoreOtherRows: TCheckBox;
-    ProgressBar1: TProgressBar;
     CBTSMiscellaneousSumAllLinesToATotal: TCheckBox;
     LTSMiscellaneousSum: TLabel;
     PDataIn: TPanel;
@@ -234,6 +236,7 @@ type
     procedure MMCopyTextTo02Click(Sender: TObject);
     procedure MMCopyTextTo03Click(Sender: TObject);
     procedure MMCopyTextTo04Click(Sender: TObject);
+    procedure ProgressBar1ContextPopup(Sender: TObject; MousePos: TPoint; var Handled: boolean);
     procedure SBHelpClick(Sender: TObject);
     procedure SBExecuteClick(Sender: TObject);
     procedure SBExitClick(Sender: TObject);
@@ -262,6 +265,7 @@ type
     procedure SBLeftMaximizeClick(Sender: TObject);
     procedure SBRightMaximizeClick(Sender: TObject);
     procedure SBRightNormalClick(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
 
   private
     { Private declarations }
@@ -918,6 +922,11 @@ begin
   MDataIn.SelText := '{4}';
 end;
 
+procedure TFMainForm.ProgressBar1ContextPopup(Sender: TObject; MousePos: TPoint; var Handled: boolean);
+begin
+
+end;
+
 procedure TFMainForm.FormCreate(Sender: TObject);
 var
   setup: Tsetup;
@@ -1103,6 +1112,30 @@ begin
   SBRightNormal.Visible := False;
   SBLeftMaximize.Visible := True;
   SBLeftNormal.Visible := False;
+end;
+
+procedure TFMainForm.Timer1Timer(Sender: TObject);
+var
+  lineIndex: integer;
+  CountBefore, CountAfter: integer;
+begin
+  StatusBar1.Panels[0].Text := Formatdatetime('yyyy-mm-dd', now());
+  StatusBar1.Panels[1].Text := Formatdatetime('HH:NN:SS', now());
+
+  lineIndex := MDataIn.CaretPos.Y;
+  CountBefore := Length(MDataIn.Lines[lineIndex]);
+  CountAfter := 0;
+
+  if MDataOut.Lines.Count > lineIndex then
+    CountAfter := Length(MDataOut.Lines[lineIndex]);
+
+  if MDataIn.Focused then
+    StatusBar1.Panels[2].Text := Format('Xy [ %d , %d ]', [MDataIn.CaretPos.X, MDataIn.CaretPos.Y]);
+  if MDataOut.Focused then
+    StatusBar1.Panels[2].Text := Format('Xy [ %d , %d ]', [MDataOut.CaretPos.X, MDataOut.CaretPos.Y]);
+
+  StatusBar1.Panels[3].Text := Format('Chr. [ %d , %d ]', [CountBefore, CountAfter]);
+  StatusBar1.Panels[4].Text := Format('Rows [ %d , %d ]', [MDataIn.Lines.Count, MDataOut.Lines.Count]);
 end;
 
 

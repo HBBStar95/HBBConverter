@@ -1098,7 +1098,7 @@ object FMainForm: TFMainForm
   end
   object PageControl1: TPageControl
     Left = 907
-    Height = 522
+    Height = 496
     Top = 75
     Width = 309
     ActivePage = TSMiscellaneous
@@ -1111,27 +1111,27 @@ object FMainForm: TFMainForm
     Options = [nboMultiLine]
     object TSMain: TTabSheet
       Caption = '&Main'
-      ClientHeight = 474
+      ClientHeight = 448
       ClientWidth = 301
       object ScrollBox1: TScrollBox
         Left = 0
-        Height = 474
+        Height = 448
         Top = 0
         Width = 301
         HorzScrollBar.Page = 1
         HorzScrollBar.Visible = False
-        VertScrollBar.Page = 450
+        VertScrollBar.Page = 448
         Align = alClient
         BorderStyle = bsNone
-        ClientHeight = 474
-        ClientWidth = 301
+        ClientHeight = 448
+        ClientWidth = 284
         ParentBackground = False
         TabOrder = 0
         object LTSMainPreText: TLabel
           Left = 3
           Height = 14
           Top = 3
-          Width = 295
+          Width = 278
           Align = alTop
           BorderSpacing.Around = 3
           Caption = 'Pre text'
@@ -1146,7 +1146,7 @@ object FMainForm: TFMainForm
           Left = 3
           Height = 14
           Top = 46
-          Width = 295
+          Width = 278
           Align = alTop
           BorderSpacing.Around = 3
           Caption = 'Rear text'
@@ -1161,7 +1161,7 @@ object FMainForm: TFMainForm
           Left = 3
           Height = 14
           Top = 89
-          Width = 295
+          Width = 278
           Align = alTop
           BorderSpacing.Around = 3
           Caption = 'Replace (before) '
@@ -1176,7 +1176,7 @@ object FMainForm: TFMainForm
           Left = 3
           Height = 14
           Top = 202
-          Width = 295
+          Width = 278
           Align = alTop
           BorderSpacing.Around = 3
           Caption = 'Replace (after)'
@@ -1191,7 +1191,7 @@ object FMainForm: TFMainForm
           Left = 3
           Height = 14
           Top = 315
-          Width = 295
+          Width = 278
           Align = alTop
           BorderSpacing.Around = 3
           Caption = 'Trim text start'
@@ -1206,7 +1206,7 @@ object FMainForm: TFMainForm
           Left = 3
           Height = 14
           Top = 358
-          Width = 295
+          Width = 278
           Align = alTop
           BorderSpacing.Around = 3
           Caption = 'Flip texst around this text (Before)'
@@ -1221,7 +1221,7 @@ object FMainForm: TFMainForm
           Left = 3
           Height = 14
           Top = 401
-          Width = 295
+          Width = 278
           Align = alTop
           BorderSpacing.Around = 3
           Caption = 'Slet string fra end linje og sæt på  ny linje'
@@ -1235,7 +1235,7 @@ object FMainForm: TFMainForm
           Left = 13
           Height = 23
           Top = 20
-          Width = 275
+          Width = 258
           Align = alTop
           BorderSpacing.Left = 10
           BorderSpacing.Right = 10
@@ -1247,7 +1247,7 @@ object FMainForm: TFMainForm
           Left = 13
           Height = 23
           Top = 63
-          Width = 275
+          Width = 258
           Align = alTop
           BorderSpacing.Left = 10
           BorderSpacing.Right = 10
@@ -1259,14 +1259,14 @@ object FMainForm: TFMainForm
           Left = 13
           Height = 29
           Top = 106
-          Width = 275
+          Width = 258
           Align = alTop
           BorderSpacing.Left = 10
           BorderSpacing.Right = 10
           BorderSpacing.Around = 3
           BevelOuter = bvNone
           ClientHeight = 29
-          ClientWidth = 275
+          ClientWidth = 258
           ParentBackground = False
           TabOrder = 2
           object Label11: TLabel
@@ -1282,7 +1282,7 @@ object FMainForm: TFMainForm
             Left = 103
             Height = 29
             Top = 0
-            Width = 172
+            Width = 155
             Align = alClient
             TabOrder = 1
             OnChange = DataChangePreView
@@ -1301,14 +1301,14 @@ object FMainForm: TFMainForm
           Left = 13
           Height = 29
           Top = 138
-          Width = 275
+          Width = 258
           Align = alTop
           BorderSpacing.Left = 10
           BorderSpacing.Right = 10
           BorderSpacing.Around = 3
           BevelOuter = bvNone
           ClientHeight = 29
-          ClientWidth = 275
+          ClientWidth = 258
           ParentBackground = False
           TabOrder = 3
           object Label18: TLabel
@@ -1324,7 +1324,7 @@ object FMainForm: TFMainForm
             Left = 103
             Height = 29
             Top = 0
-            Width = 172
+            Width = 155
             Align = alClient
             TabOrder = 1
             OnChange = DataChangePreView
@@ -1343,14 +1343,14 @@ object FMainForm: TFMainForm
           Left = 13
           Height = 29
           Top = 170
-          Width = 275
+          Width = 258
           Align = alTop
           BorderSpacing.Left = 10
           BorderSpacing.Right = 10
           BorderSpacing.Around = 3
           BevelOuter = bvNone
           ClientHeight = 29
-          ClientWidth = 275
+          ClientWidth = 258
           ParentBackground = False
           TabOrder = 4
           object Label19: TLabel
@@ -1366,7 +1366,7 @@ object FMainForm: TFMainForm
             Left = 103
             Height = 29
             Top = 0
-            Width = 172
+            Width = 155
             Align = alClient
             TabOrder = 1
             OnChange = DataChangePreView
@@ -1385,14 +1385,14 @@ object FMainForm: TFMainForm
           Left = 13
           Height = 29
           Top = 219
-          Width = 275
+          Width = 258
           Align = alTop
           BorderSpacing.Left = 10
           BorderSpacing.Right = 10
           BorderSpacing.Around = 3
           BevelOuter = bvNone
           ClientHeight = 29
-          ClientWidth = 275
+          ClientWidth = 258
           ParentBackground = False
           TabOrder = 5
           object Label13: TLabel
@@ -1408,7 +1408,7 @@ object FMainForm: TFMainForm
             Left = 103
             Height = 29
             Top = 0
-            Width = 172
+            Width = 155
             Align = alClient
             TabOrder = 1
             OnChange = DataChangePreView
@@ -1427,14 +1427,14 @@ object FMainForm: TFMainForm
           Left = 13
           Height = 29
           Top = 251
-          Width = 275
+          Width = 258
           Align = alTop
           BorderSpacing.Left = 10
           BorderSpacing.Right = 10
           BorderSpacing.Around = 3
           BevelOuter = bvNone
           ClientHeight = 29
-          ClientWidth = 275
+          ClientWidth = 258
           ParentBackground = False
           TabOrder = 6
           object Label17: TLabel
@@ -1450,7 +1450,7 @@ object FMainForm: TFMainForm
             Left = 103
             Height = 29
             Top = 0
-            Width = 172
+            Width = 155
             Align = alClient
             TabOrder = 1
             OnChange = DataChangePreView
@@ -1469,7 +1469,7 @@ object FMainForm: TFMainForm
           Left = 13
           Height = 23
           Top = 375
-          Width = 275
+          Width = 258
           Align = alTop
           BorderSpacing.Left = 10
           BorderSpacing.Right = 10
@@ -1481,14 +1481,14 @@ object FMainForm: TFMainForm
           Left = 13
           Height = 29
           Top = 418
-          Width = 275
+          Width = 258
           Align = alTop
           BorderSpacing.Left = 10
           BorderSpacing.Right = 10
           BorderSpacing.Around = 3
           BevelOuter = bvNone
           ClientHeight = 29
-          ClientWidth = 275
+          ClientWidth = 258
           ParentBackground = False
           TabOrder = 9
           object Label22: TLabel
@@ -1504,7 +1504,7 @@ object FMainForm: TFMainForm
             Left = 103
             Height = 29
             Top = 0
-            Width = 172
+            Width = 155
             Align = alClient
             TabOrder = 1
             OnChange = DataChangePreView
@@ -1523,14 +1523,14 @@ object FMainForm: TFMainForm
           Left = 13
           Height = 29
           Top = 283
-          Width = 275
+          Width = 258
           Align = alTop
           BorderSpacing.Left = 10
           BorderSpacing.Right = 10
           BorderSpacing.Around = 3
           BevelOuter = bvNone
           ClientHeight = 29
-          ClientWidth = 275
+          ClientWidth = 258
           ParentBackground = False
           TabOrder = 8
           object Label20: TLabel
@@ -1546,7 +1546,7 @@ object FMainForm: TFMainForm
             Left = 103
             Height = 29
             Top = 0
-            Width = 172
+            Width = 155
             Align = alClient
             TabOrder = 1
             OnChange = DataChangePreView
@@ -1565,7 +1565,7 @@ object FMainForm: TFMainForm
           Left = 13
           Height = 23
           Top = 332
-          Width = 65
+          Width = 48
           Align = alTop
           BorderSpacing.Left = 10
           BorderSpacing.Right = 220
@@ -1577,7 +1577,7 @@ object FMainForm: TFMainForm
     end
     object TSSubString: TTabSheet
       Caption = '&Sub string'
-      ClientHeight = 474
+      ClientHeight = 448
       ClientWidth = 301
       ImageIndex = 1
       object LTSSubStringSelectTextFrom: TLabel
@@ -1715,7 +1715,7 @@ object FMainForm: TFMainForm
     end
     object TabSheet3: TTabSheet
       Caption = 'Cas&e'
-      ClientHeight = 474
+      ClientHeight = 448
       ClientWidth = 301
       ImageIndex = 2
       object Panel5: TPanel
@@ -1899,7 +1899,7 @@ object FMainForm: TFMainForm
     end
     object TSCSV: TTabSheet
       Caption = 'CSV'
-      ClientHeight = 474
+      ClientHeight = 448
       ClientWidth = 301
       ImageIndex = 3
       object LTSCSVExtractColoumnNo: TLabel
@@ -1965,7 +1965,7 @@ object FMainForm: TFMainForm
     object TSClip: TTabSheet
       AutoSize = True
       Caption = 'C&lip'
-      ClientHeight = 474
+      ClientHeight = 448
       ClientWidth = 301
       ImageIndex = 5
       object LTSClipClipTextFromStartToMatch: TLabel
@@ -2239,19 +2239,19 @@ object FMainForm: TFMainForm
     end
     object TSMiscellaneous: TTabSheet
       Caption = 'Diverse'
-      ClientHeight = 474
+      ClientHeight = 448
       ClientWidth = 301
       ImageIndex = 6
       object ScrollBox2: TScrollBox
         Left = 0
-        Height = 474
+        Height = 448
         Top = 0
         Width = 301
         HorzScrollBar.Page = 286
         VertScrollBar.Page = 388
         Align = alClient
         BorderStyle = bsNone
-        ClientHeight = 474
+        ClientHeight = 448
         ClientWidth = 301
         ParentBackground = False
         TabOrder = 0
@@ -2511,7 +2511,7 @@ object FMainForm: TFMainForm
     end
     object TSCopy: TTabSheet
       Caption = 'Copy'
-      ClientHeight = 474
+      ClientHeight = 448
       ClientWidth = 301
       object Label1: TLabel
         Left = 3
@@ -2756,32 +2756,32 @@ object FMainForm: TFMainForm
   end
   object Panel15: TPanel
     Left = 0
-    Height = 528
+    Height = 502
     Top = 72
     Width = 904
     Align = alClient
     BevelOuter = bvNone
-    ClientHeight = 528
+    ClientHeight = 502
     ClientWidth = 904
     ParentBackground = False
     TabOrder = 2
     OnResize = Panel15Resize
     object Panel16: TPanel
       Left = 3
-      Height = 522
+      Height = 496
       Top = 3
       Width = 377
       Align = alLeft
       BorderSpacing.Around = 3
       BevelOuter = bvNone
-      ClientHeight = 522
+      ClientHeight = 496
       ClientWidth = 377
       ParentBackground = False
       TabOrder = 0
       object PFunctionsDataIn: TPanel
         Left = 0
         Height = 64
-        Top = 458
+        Top = 432
         Width = 377
         Align = alBottom
         BevelOuter = bvNone
@@ -3508,7 +3508,7 @@ object FMainForm: TFMainForm
       end
       object MDataIn: TMemo
         Left = 0
-        Height = 438
+        Height = 412
         Top = 20
         Width = 377
         Align = alClient
@@ -3640,20 +3640,20 @@ object FMainForm: TFMainForm
     end
     object Panel17: TPanel
       Left = 383
-      Height = 522
+      Height = 496
       Top = 3
       Width = 518
       Align = alClient
       BorderSpacing.Around = 3
       BevelOuter = bvNone
-      ClientHeight = 522
+      ClientHeight = 496
       ClientWidth = 518
       ParentBackground = False
       TabOrder = 1
       object PFunctionsDataOut: TPanel
         Left = 0
         Height = 64
-        Top = 458
+        Top = 432
         Width = 518
         Align = alBottom
         BevelOuter = bvNone
@@ -4237,7 +4237,7 @@ object FMainForm: TFMainForm
       end
       object MDataOut: TMemo
         Left = 0
-        Height = 418
+        Height = 392
         Top = 20
         Width = 518
         Align = alClient
@@ -4344,7 +4344,7 @@ object FMainForm: TFMainForm
       object PShowPreviewInfo: TPanel
         Left = 0
         Height = 20
-        Top = 438
+        Top = 412
         Width = 518
         Align = alBottom
         BevelOuter = bvNone
@@ -4359,13 +4359,44 @@ object FMainForm: TFMainForm
       end
     end
   end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 23
+    Top = 594
+    Width = 1219
+    Panels = <    
+      item
+        Alignment = taCenter
+        Width = 70
+      end    
+      item
+        Alignment = taCenter
+        Width = 70
+      end    
+      item
+        Alignment = taCenter
+        Width = 100
+      end    
+      item
+        Alignment = taCenter
+        Width = 100
+      end    
+      item
+        Alignment = taCenter
+        Width = 100
+      end    
+      item
+        Width = 50
+      end>
+    SimplePanel = False
+  end
   object ProgressBar1: TProgressBar
     Left = 0
-    Height = 17
-    Top = 600
+    Height = 20
+    Top = 574
     Width = 1219
     Align = alBottom
-    TabOrder = 3
+    TabOrder = 4
     Visible = False
   end
   object MainMenu1: TMainMenu
@@ -4478,5 +4509,11 @@ object FMainForm: TFMainForm
   object OpenDialog1: TOpenDialog
     Left = 880
     Top = 24
+  end
+  object Timer1: TTimer
+    Interval = 500
+    OnTimer = Timer1Timer
+    Left = 1081
+    Top = 26
   end
 end
