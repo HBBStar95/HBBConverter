@@ -16,13 +16,24 @@ uses
   , Types;
 
 const
-  ApplicationName = 'HBB Converter version 1.0.8';
+  ApplicationName = 'HBB Converter version 1.0.10';
+
+type
+  TFormatCount = record
+    Name: string;
+    Ciffer: integer;
+    Value: integer;
+  end;
 
 type
 
   { TFMainForm }
 
   TFMainForm = class(TForm)
+    Bevel3: TBevel;
+    CBAllLowerCase: TCheckBox;
+    CBAllUpperCase: TCheckBox;
+    CBCamelCase: TCheckBox;
     ECopyFrom02: TEdit;
     ECopyFrom04: TEdit;
     ECopyFrom03: TEdit;
@@ -46,8 +57,15 @@ type
     Label6: TLabel;
     Label7: TLabel;
     Label8: TLabel;
+    LTSCaseSubString1: TLabel;
     LTSMiscellaneousNewLine: TLabel;
     LTSMiscellaneousNewLine1: TLabel;
+    MenuItem1: TMenuItem;
+    MenuItem3: TMenuItem;
+    MenuItem4: TMenuItem;
+    MenuItem5: TMenuItem;
+    MenuItem6: TMenuItem;
+    Separator3: TMenuItem;
     MMInsertCode: TMenuItem;
     MMTheEntireStartingLine: TMenuItem;
     MMCopyTextTo02: TMenuItem;
@@ -231,6 +249,7 @@ type
     SpinEdit3: TSpinEdit;
     procedure FormCreate(Sender: TObject);
     procedure MDataInChange(Sender: TObject);
+    procedure MenuItemFormatCountClick(Sender: TObject);
     procedure MenuItem2Click(Sender: TObject);
     procedure MMTheEntireStartingLineClick(Sender: TObject);
     procedure MMCopyTextTo02Click(Sender: TObject);
@@ -270,13 +289,18 @@ type
   private
     { Private declarations }
     CountNo: integer;
+    FormatCountNo: integer;
     FShowLeftOnly: boolean;
     FShowRightOnly: boolean;
     FFlipedText: boolean;
   public
     { Public declarations }
+    FormatCountList: array of TFormatCount;
     procedure PreView();
     function FormatRow(aRow: string): string;
+    procedure AddFormatCount(aFormat: string; aStartNumber: integer);
+    function GetNextFormatCountNumber(aFormat: string; aNewRow: boolean): string;
+    function SetFormatCountRow(aRow: string): string;
 
   published
     { published declarations }
@@ -293,6 +317,159 @@ implementation
 {$R *.lfm}
 
 uses uRemoveText, Themes;
+
+procedure TFMainForm.AddFormatCount(aFormat: string; aStartNumber: integer);
+
+  function GetNumberFromFormat(aFormat: string): integer;
+  var
+    number: string;
+    t: integer;
+  begin
+    for t := 1 to length(aFormat) do
+      if pos(aFormat[t], '1234567890') > 0 then
+        number := number + aFormat[t];
+
+    Result := StrToIntDef(number, 0);
+  end;
+
+var
+  exists: boolean;
+  i: integer;
+begin
+  exists := False;
+  for i := 0 to High(FormatCountList) do
+    if FormatCountList[i].Name = aFormat then
+    begin
+      exists := True;
+      Break;
+    end;
+
+  if not exists then
+  begin
+    SetLength(FormatCountList, Length(FormatCountList) + 1);
+    FormatCountList[Length(FormatCountList) - 1].Name := aFormat;
+    FormatCountList[Length(FormatCountList) - 1].Ciffer := length(aFormat) - length('{$N}');
+    FormatCountList[Length(FormatCountList) - 1].Value := GetNumberFromFormat(aFormat);
+  end;
+end;
+
+function TFMainForm.GetNextFormatCountNumber(aFormat: string; aNewRow: boolean): string;
+const
+  zero = '00000000000000000000000';
+var
+  i: integer;
+begin
+  Result := '0';
+  for i := 0 to High(FormatCountList) do
+    if FormatCountList[i].Name = aFormat then
+    begin
+      Result := formatfloat(copy(zero, 0, FormatCountList[i].Ciffer), FormatCountList[i].Value);
+      if aNewRow then
+        FormatCountList[i].Value := FormatCountList[i].Value + 1;
+      Break;
+    end;
+end;
+
+function TFMainForm.SetFormatCountRow(aRow: string): string;
+const
+  CodeStart = '{$N';
+  CodeEnd = '}';
+
+// Info : Kontroler om der er format string nr. i linjen
+// Note :
+  function FormatStringInLine(aRow: string): boolean;
+  var
+    t: integer;
+    Code: string;
+  begin
+    code := '';
+    Result := False;
+
+    // Info : Løb linje igennem
+    // Note :
+    for t := 1 to length(aRow) do
+    begin
+
+      // Info : Indholder karakter start kode.
+      // Note:
+      if pos(aRow[t], CodeStart) > 0 then
+      begin
+        code := code + aRow[t];
+        Continue;
+      end;
+
+      // Info :
+      if code <> CodeStart then
+        Continue;
+
+      // Info : Findes slut code.
+      // Note :
+      if pos(string(aRow[t]), CodeEnd) > 0 then
+      begin
+        Result := True;
+        break;
+      end;
+
+      // Info : hvis andet ind tal imellem, så er det ikke formatstring number.
+      // Note :
+      if pos(aRow[t], '1234567890') <= 0 then
+      begin
+        code := '';
+        Result := False;
+      end;
+    end;
+  end;
+
+var
+  code: string;
+  number: string;
+  nextNumber: string;
+  t: integer;
+  FormatString: string;
+  First: boolean;
+  stl: TStringList;
+begin
+  if pos(CodeStart, aRow) <= 0 then
+    exit;
+  // Info : Hold styr på hvilken formater som er brugt.
+  // Note :
+  stl := TStringList.Create();
+
+  code := '';
+  repeat
+    for t := 1 to length(aRow) do
+    begin
+      if (Pos(aRow[t], CodeStart) > 0) then
+      begin
+        code := code + aRow[t];
+        Continue;
+      end;
+
+      if (code = CodeStart) then
+      begin
+        // Info :
+        if (Pos(string(aRow[t]), CodeEnd) > 0) then
+        begin
+          // Info : Opret format.
+          FormatString := format('%s%s%s', [CodeStart, number, CodeEnd]);
+          First := pos(stl.Text, FormatString) <= 0;
+          AddFormatCount(FormatString, strtointdef(number, 0));
+          nextNumber := GetNextFormatCountNumber(FormatString, First);
+          aRow := StringReplace(aRow, FormatString, format('%s', [nextNumber]), [rfReplaceAll]);
+          code := '';
+          number := '';
+          stl.Add(FormatString);
+          break;
+        end;
+
+        if (Pos(aRow[t], '1234567890') > 0) then
+          number := number + aRow[t];
+      end;
+    end;
+  until not FormatStringInLine(aRow);
+  stl.Free;
+  Result := aRow;
+end;
 
 procedure TFMainForm.CBTSCaseFirstCharInRowClick(Sender: TObject);
 begin
@@ -445,6 +622,35 @@ begin
   aRow := StringReplace(aRow, Edit28.Caption, Edit28.Caption + #13#10, [rfReplaceAll]);
   aRow := StringReplace(aRow, Edit29.Caption, Edit29.Caption + #13#10, [rfReplaceAll]);
   aRow := StringReplace(aRow, Edit30.Caption, Edit30.Caption + #13#10, [rfReplaceAll]);
+
+
+
+  Inc(FormatCountNo);
+
+  aRow := SetFormatCountRow(aRow);
+
+  //  if pos('{$N0}', aRow) > 0 then
+  //    aRow := StringReplace(aRow, '{$N0}', formatFloat('0', FormatCountNo), [rfReplaceAll]);
+  //  if pos('{$N00}', aRow) > 0 then
+  //    aRow := StringReplace(aRow, '{$N00}', formatFloat('00', FormatCountNo), [rfReplaceAll]);
+  //  if pos('{$N000}', aRow) > 0 then
+  //    aRow := StringReplace(aRow, '{$N000}', formatFloat('000', FormatCountNo), [rfReplaceAll]);
+  //  if pos('{$N0000}', aRow) > 0 then
+  //    aRow := StringReplace(aRow, '{$N0000}', formatFloat('0000', FormatCountNo), [rfReplaceAll]);
+  //  if pos('{$N00000}', aRow) > 0 then
+  //    aRow := StringReplace(aRow, '{$N00000}', formatFloat('00000', FormatCountNo), [rfReplaceAll]);
+
+
+  if CBAllLowerCase.Checked then
+    aRow := LowerCase(aRow);
+  if CBAllupperCase.Checked then
+    aRow := UpperCase(aRow);
+  if CBCamelCase.Checked then
+  begin
+    aRow := LowerCase(aRow);
+    aRow := StringReplace(aRow, ' ', '_', [rfReplaceAll]);
+  end;
+
 
   Result := aRow;
 end;
@@ -771,6 +977,8 @@ procedure TFMainForm.SBExecuteClick(Sender: TObject);
 var
   I: integer;
 begin
+  SetLength(FormatCountList, 0);
+  FormatCountNo := 0;
   PShowPreviewInfo.Visible := False;
   ProgressBar1.Max := MDataIn.Lines.Count - 1;
   ProgressBar1.Position := 0;
@@ -831,6 +1039,9 @@ var
   i: integer;
   setup: Tsetup;
 begin
+  SetLength(FormatCountList, 0);
+
+  FormatCountNo := 0;
   setup := Tsetup.Create();
   if not setup.ShowPreview then
     exit;
@@ -870,6 +1081,40 @@ begin
       if i > setup.PreViewNumberOfRows - 2 then
         break;
     end;
+end;
+
+procedure TFMainForm.MenuItemFormatCountClick(Sender: TObject);
+var
+  no: integer;
+begin
+  no := strtointdef(InputBox('Start number.', 'No.', '0'), 0);
+
+
+  // Find det aktive kontrolpunkt
+  ActiveControl := Self.ActiveControl; // Hent det aktuelle aktive kontrolpunkt
+
+  // Tjek, om det aktive kontrolpunkt er et TEdit eller TMemo
+  if (ActiveControl is TCustomEdit) then
+  begin
+    with TCustomEdit(ActiveControl) do
+    begin
+      SetFocus; // Sørg for, at kontrolpunktet har fokus
+      // Indsæt teksten ved cursorens nuværende position
+      if (Sender is TMenuItem) then
+      begin
+        if (Sender as TMenuItem) = MenuItem3 then
+          SelText := formatfloat('{$N0}', no);
+        if (Sender as TMenuItem) = MenuItem1 then
+          SelText := formatfloat('{$N00}', no);
+        if (Sender as TMenuItem) = MenuItem4 then
+          SelText := formatfloat('{$N000}', no);
+        if (Sender as TMenuItem) = MenuItem5 then
+          SelText := formatfloat('{$N0000}', no);
+        if (Sender as TMenuItem) = MenuItem6 then
+          SelText := formatfloat('{$N000000}', no);
+      end;
+    end;
+  end;
 end;
 
 procedure TFMainForm.MenuItem2Click(Sender: TObject);
@@ -924,7 +1169,6 @@ end;
 
 procedure TFMainForm.ProgressBar1ContextPopup(Sender: TObject; MousePos: TPoint; var Handled: boolean);
 begin
-
 end;
 
 procedure TFMainForm.FormCreate(Sender: TObject);
@@ -1137,7 +1381,5 @@ begin
   StatusBar1.Panels[3].Text := Format('Chr. [ %d , %d ]', [CountBefore, CountAfter]);
   StatusBar1.Panels[4].Text := Format('Rows [ %d , %d ]', [MDataIn.Lines.Count, MDataOut.Lines.Count]);
 end;
-
-
 
 end.

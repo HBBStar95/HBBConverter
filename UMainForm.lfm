@@ -1101,11 +1101,11 @@ object FMainForm: TFMainForm
     Height = 496
     Top = 75
     Width = 309
-    ActivePage = TSMiscellaneous
+    ActivePage = TabSheet3
     Align = alRight
     BorderSpacing.Around = 3
     MultiLine = True
-    TabIndex = 5
+    TabIndex = 2
     TabOrder = 1
     OnChange = DataChangePreView
     Options = [nboMultiLine]
@@ -1895,6 +1895,65 @@ object FMainForm: TFMainForm
           OnChange = DataChangePreView
           OnClick = CBTSCaseFirstCharInRowClick
         end
+      end
+      object LTSCaseSubString1: TLabel
+        Left = 3
+        Height = 14
+        Top = 260
+        Width = 295
+        Align = alTop
+        BorderSpacing.Around = 3
+        Caption = 'Hele rækken'
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Verdana'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Bevel3: TBevel
+        Left = 3
+        Height = 8
+        Top = 277
+        Width = 295
+        Align = alTop
+        BorderSpacing.Around = 3
+        Shape = bsTopLine
+      end
+      object CBAllLowerCase: TCheckBox
+        Left = 10
+        Height = 19
+        Top = 288
+        Width = 281
+        Align = alTop
+        BorderSpacing.Left = 10
+        BorderSpacing.Right = 10
+        Caption = 'All lower case'
+        TabOrder = 2
+        OnChange = DataChangePreView
+      end
+      object CBAllUpperCase: TCheckBox
+        Left = 10
+        Height = 19
+        Top = 307
+        Width = 281
+        Align = alTop
+        BorderSpacing.Left = 10
+        BorderSpacing.Right = 10
+        Caption = 'All upper case'
+        TabOrder = 3
+        OnChange = DataChangePreView
+      end
+      object CBCamelCase: TCheckBox
+        Left = 10
+        Height = 19
+        Top = 326
+        Width = 281
+        Align = alTop
+        BorderSpacing.Left = 10
+        BorderSpacing.Right = 10
+        Caption = 'Camel case'
+        TabOrder = 4
+        OnChange = DataChangePreView
       end
     end
     object TSCSV: TTabSheet
@@ -4420,6 +4479,7 @@ object FMainForm: TFMainForm
       end
       object MNAfslut: TMenuItem
         Caption = 'Afslut'
+        ShortCut = 27
         OnClick = SBExitClick
       end
     end
@@ -4454,6 +4514,34 @@ object FMainForm: TFMainForm
           Caption = '{4} Copy text to'
           ShortCut = 16436
           OnClick = MMCopyTextTo04Click
+        end
+        object Separator3: TMenuItem
+          Caption = '-'
+        end
+        object MenuItem3: TMenuItem
+          Caption = '{$0} insert number "0"'
+          ShortCut = 16437
+          OnClick = MenuItemFormatCountClick
+        end
+        object MenuItem1: TMenuItem
+          Caption = '{$00} insert number "00"'
+          ShortCut = 16438
+          OnClick = MenuItemFormatCountClick
+        end
+        object MenuItem4: TMenuItem
+          Caption = '{$000} insert number "000"'
+          ShortCut = 16439
+          OnClick = MenuItemFormatCountClick
+        end
+        object MenuItem5: TMenuItem
+          Caption = '{$0000} insert number "0000"'
+          ShortCut = 16440
+          OnClick = MenuItemFormatCountClick
+        end
+        object MenuItem6: TMenuItem
+          Caption = '{$00000} insert number "00000"'
+          ShortCut = 16441
+          OnClick = MenuItemFormatCountClick
         end
       end
       object Separator2: TMenuItem
