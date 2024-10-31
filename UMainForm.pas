@@ -5,7 +5,7 @@ interface
 uses
   SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, ExtCtrls,
   StdCtrls, Buttons, Clipbrd, ComCtrls, Menus, Spin, uFlipText,
-  uReplaceText, uSubRow, uCase, uCSV, uSequencesNo, uSetup, uTools, uCopyText
+  uReplaceText, uSubRow, uCase, uCSV, uSequencesNo, uSetup, uTools, uCopyText, uFormatSQL, uFormatJSON
   {$IFDEF WINDOWS}
 //  ,ShellApi
   , Windows
@@ -16,7 +16,7 @@ uses
   , Types;
 
 const
-  ApplicationName = 'HBB Converter version 1.0.10';
+  ApplicationName = 'HBB Converter version 1.0.11';
 
 type
   TFormatCount = record
@@ -50,6 +50,7 @@ type
     Label10: TLabel;
     Label12: TLabel;
     Label14: TLabel;
+    Label15: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
@@ -65,6 +66,14 @@ type
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
+    RBFormatTab: TRadioButton;
+    RBFormatTwoSpace: TRadioButton;
+    RadioGroup2: TRadioGroup;
+    RBFormatSQL: TRadioButton;
+    RBFormatJSON: TRadioButton;
+    RadioButton3: TRadioButton;
+    RadioButton4: TRadioButton;
+    RadioGroup1: TRadioGroup;
     Separator3: TMenuItem;
     MMInsertCode: TMenuItem;
     MMTheEntireStartingLine: TMenuItem;
@@ -99,6 +108,7 @@ type
     SBFlipViews: TSpeedButton;
     PageControl1: TPageControl;
     StatusBar1: TStatusBar;
+    TabSheet1: TTabSheet;
     Timer1: TTimer;
     TSCopy: TTabSheet;
     TSMain: TTabSheet;
@@ -652,6 +662,8 @@ begin
   end;
 
 
+
+
   Result := aRow;
 end;
 
@@ -1008,6 +1020,11 @@ begin
       else
         MDataOut.Lines.Add(LVMultiselect.Items[I].Caption);
     end;
+  if RBFormatSQL.Checked then
+    MDataOut.Text := FormatSQL(MDataOut.Text);
+
+  if RBFormatJSON.Checked then
+    MDataOut.Text := FormatJSON(MDataOut.Text,RBFormatTab.Checked);
 
   if CBTSMiscellaneousSumAllLinesToATotal.Checked then
     MDataOut.Lines.Add(Format('Total : %.2f', [GetTotalFromRows(MDataOut)]));

@@ -133,6 +133,16 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="uCopyText"/>
       </Unit>
+      <Unit>
+        <Filename Value="uformatsql.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uFormatSQL"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uformatjson.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uFormatJSON"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
