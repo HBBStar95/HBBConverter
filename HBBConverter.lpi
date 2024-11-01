@@ -143,6 +143,26 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="uFormatJSON"/>
       </Unit>
+      <Unit>
+        <Filename Value="uformatxml.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uFormatXML"/>
+      </Unit>
+      <Unit>
+        <Filename Value="udelphilazarus.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uDelphiLazarus"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ucsharpjava.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uCSharpJava"/>
+      </Unit>
+      <Unit>
+        <Filename Value="udetecttextformat.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uDetectTextFormat"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -181,6 +201,9 @@
       </Item>
       <Item>
         <Name Value="EFOpenError"/>
+      </Item>
+      <Item>
+        <Name Value="EJSONParser"/>
       </Item>
     </Exceptions>
   </Debugging>

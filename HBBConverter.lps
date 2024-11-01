@@ -8,9 +8,9 @@
       <Unit>
         <Filename Value="HBBConverter.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="5"/>
-        <CursorPos X="30" Y="13"/>
-        <UsageCount Value="130"/>
+        <EditorIndex Value="10"/>
+        <CursorPos X="32" Y="13"/>
+        <UsageCount Value="136"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -21,10 +21,10 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <CursorPos X="50" Y="19"/>
-        <UsageCount Value="130"/>
+        <UsageCount Value="136"/>
         <Bookmarks Count="2">
-          <Item0 Y="308" ID="1"/>
-          <Item1 X="15" Y="22" ID="2"/>
+          <Item0 X="18" Y="1158" ID="1"/>
+          <Item1 Y="1074" ID="2"/>
         </Bookmarks>
         <Loaded Value="True"/>
       </Unit>
@@ -35,16 +35,16 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="32"/>
         <CursorPos X="40" Y="40"/>
-        <UsageCount Value="128"/>
+        <UsageCount Value="134"/>
       </Unit>
       <Unit>
         <Filename Value="ufliptext.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uFlipText"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="6"/>
         <TopLine Value="4"/>
         <CursorPos Y="2"/>
-        <UsageCount Value="126"/>
+        <UsageCount Value="132"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -53,7 +53,7 @@
         <UnitName Value="uReplaceText"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="24" Y="14"/>
-        <UsageCount Value="124"/>
+        <UsageCount Value="130"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
       <Unit>
@@ -63,7 +63,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="17"/>
         <CursorPos Y="27"/>
-        <UsageCount Value="123"/>
+        <UsageCount Value="129"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
       <Unit>
@@ -73,7 +73,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="18"/>
         <CursorPos Y="26"/>
-        <UsageCount Value="120"/>
+        <UsageCount Value="126"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
       <Unit>
@@ -83,7 +83,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="27"/>
         <CursorPos X="35" Y="30"/>
-        <UsageCount Value="120"/>
+        <UsageCount Value="126"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
       <Unit>
@@ -93,16 +93,17 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="4"/>
         <CursorPos X="29" Y="9"/>
-        <UsageCount Value="119"/>
+        <UsageCount Value="125"/>
       </Unit>
       <Unit>
         <Filename Value="usetup.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uSetup"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="174"/>
-        <CursorPos X="42" Y="184"/>
-        <UsageCount Value="113"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="88"/>
+        <CursorPos Y="94"/>
+        <UsageCount Value="119"/>
+        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="ulanguage.pas"/>
@@ -111,7 +112,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="174"/>
         <CursorPos X="120" Y="187"/>
-        <UsageCount Value="110"/>
+        <UsageCount Value="116"/>
       </Unit>
       <Unit>
         <Filename Value="uversion.pas"/>
@@ -120,7 +121,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="13"/>
         <CursorPos X="14" Y="15"/>
-        <UsageCount Value="81"/>
+        <UsageCount Value="87"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
       <Unit>
@@ -128,7 +129,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="uTools"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="80"/>
+        <UsageCount Value="86"/>
       </Unit>
       <Unit>
         <Filename Value="ucopytext.pas"/>
@@ -137,25 +138,64 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="12"/>
         <CursorPos X="20" Y="18"/>
-        <UsageCount Value="78"/>
+        <UsageCount Value="84"/>
       </Unit>
       <Unit>
         <Filename Value="uformatsql.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uFormatSQL"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="13"/>
-        <CursorPos X="35" Y="18"/>
-        <UsageCount Value="23"/>
+        <EditorIndex Value="7"/>
+        <TopLine Value="72"/>
+        <CursorPos X="44" Y="75"/>
+        <UsageCount Value="29"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="uformatjson.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uFormatJSON"/>
+        <EditorIndex Value="8"/>
+        <TopLine Value="7"/>
+        <CursorPos X="16" Y="18"/>
+        <UsageCount Value="28"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uformatxml.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uFormatXML"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="14"/>
+        <CursorPos X="25" Y="20"/>
+        <UsageCount Value="26"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="udelphilazarus.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uDelphiLazarus"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="23"/>
+        <CursorPos X="80" Y="43"/>
+        <UsageCount Value="24"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ucsharpjava.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uCSharpJava"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="17"/>
-        <CursorPos X="27" Y="27"/>
+        <TopLine Value="16"/>
+        <CursorPos X="62" Y="29"/>
+        <UsageCount Value="24"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="udetecttextformat.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uDetectTextFormat"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="26" Y="16"/>
         <UsageCount Value="22"/>
         <Loaded Value="True"/>
       </Unit>
@@ -210,133 +250,133 @@
       </Unit>
       <Unit>
         <Filename Value="C:\lazarus\lcl\interfaces\win32\win32callback.inc"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="9"/>
         <TopLine Value="2012"/>
         <CursorPos Y="2023"/>
-        <UsageCount Value="13"/>
+        <UsageCount Value="18"/>
         <Loaded Value="True"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
       <Position>
-        <Filename Value="UMainForm.pas"/>
-        <Caret Line="442" TopLine="432"/>
+        <Filename Value="udelphilazarus.pas"/>
+        <Caret Line="32" Column="54" TopLine="21"/>
       </Position>
       <Position>
         <Filename Value="UMainForm.pas"/>
-        <Caret Line="443" TopLine="433"/>
+        <Caret Line="1034" Column="78" TopLine="1023"/>
       </Position>
       <Position>
         <Filename Value="UMainForm.pas"/>
-        <Caret Line="438" Column="22" TopLine="434"/>
+        <Caret Line="1005" Column="32" TopLine="997"/>
       </Position>
       <Position>
         <Filename Value="UMainForm.pas"/>
-        <Caret Line="307" Column="32" TopLine="294"/>
+        <Caret Line="492" Column="3" TopLine="489"/>
       </Position>
       <Position>
         <Filename Value="UMainForm.pas"/>
-        <Caret Line="665" Column="15" TopLine="655"/>
+        <Caret Line="310" Column="15" TopLine="300"/>
       </Position>
       <Position>
         <Filename Value="UMainForm.pas"/>
-        <Caret Line="498" Column="23" TopLine="488"/>
+        <Caret Line="723" Column="3" TopLine="720"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="262" Column="15" TopLine="252"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="1110" Column="18" TopLine="1099"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="1047" TopLine="1034"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="1141" TopLine="1120"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="1122" Column="8" TopLine="1120"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="1093" Column="24" TopLine="1082"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="1018" TopLine="1013"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="1109" Column="18" TopLine="1074"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="1093" Column="53" TopLine="1089"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="1103" Column="20" TopLine="1085"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="1102" Column="86" TopLine="1082"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="1090" Column="15" TopLine="1086"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="19" Column="50"/>
+      </Position>
+      <Position>
+        <Filename Value="udelphilazarus.pas"/>
+        <Caret Line="10" TopLine="5"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="1041" TopLine="1030"/>
+      </Position>
+      <Position>
+        <Filename Value="udelphilazarus.pas"/>
+        <Caret Line="43" Column="80" TopLine="23"/>
+      </Position>
+      <Position>
+        <Filename Value="ucsharpjava.pas"/>
+        <Caret Line="29" Column="62" TopLine="16"/>
+      </Position>
+      <Position>
+        <Filename Value="UMainForm.pas"/>
+        <Caret Line="1044" Column="75" TopLine="1034"/>
       </Position>
       <Position>
         <Filename Value="uformatsql.pas"/>
-        <Caret Line="12" Column="17"/>
-      </Position>
-      <Position>
-        <Filename Value="UMainForm.pas"/>
-        <Caret Line="498" Column="23" TopLine="488"/>
+        <Caret Line="128" TopLine="106"/>
       </Position>
       <Position>
         <Filename Value="uformatsql.pas"/>
-        <Caret Line="14" Column="24"/>
-      </Position>
-      <Position>
-        <Filename Value="ufliptext.pas"/>
-        <Caret Line="35" Column="45" TopLine="22"/>
+        <Caret Line="138" Column="20" TopLine="127"/>
       </Position>
       <Position>
         <Filename Value="UMainForm.pas"/>
-        <Caret Line="663" TopLine="658"/>
-      </Position>
-      <Position>
-        <Filename Value="uformatsql.pas"/>
-        <Caret Line="9" TopLine="3"/>
+        <Caret Line="1150" Column="12" TopLine="1148"/>
       </Position>
       <Position>
         <Filename Value="UMainForm.pas"/>
-        <Caret Line="660" Column="19" TopLine="651"/>
+        <Caret Line="1157" Column="12" TopLine="1155"/>
       </Position>
       <Position>
         <Filename Value="UMainForm.pas"/>
-        <Caret Line="662" Column="13" TopLine="651"/>
+        <Caret Line="951" Column="16" TopLine="931"/>
       </Position>
       <Position>
         <Filename Value="UMainForm.pas"/>
-        <Caret Line="660" Column="24" TopLine="651"/>
-      </Position>
-      <Position>
-        <Filename Value="uformatsql.pas"/>
-        <Caret Line="32" Column="21" TopLine="11"/>
-      </Position>
-      <Position>
-        <Filename Value="UMainForm.pas"/>
-        <Caret Line="659" Column="12" TopLine="651"/>
-      </Position>
-      <Position>
-        <Filename Value="UMainForm.pas"/>
-        <Caret Line="307" Column="20" TopLine="286"/>
-      </Position>
-      <Position>
-        <Filename Value="UMainForm.pas"/>
-        <Caret Line="487" Column="22" TopLine="481"/>
-      </Position>
-      <Position>
-        <Filename Value="UMainForm.pas"/>
-        <Caret Line="1022" TopLine="1009"/>
-      </Position>
-      <Position>
-        <Filename Value="uformatjson.pas"/>
-        <Caret Line="37" TopLine="18"/>
-      </Position>
-      <Position>
-        <Filename Value="uformatjson.pas"/>
-        <Caret Line="11" TopLine="3"/>
-      </Position>
-      <Position>
-        <Filename Value="uformatjson.pas"/>
-        <Caret Line="19" Column="14" TopLine="10"/>
-      </Position>
-      <Position>
-        <Filename Value="UMainForm.pas"/>
-        <Caret Line="1015" Column="38" TopLine="1012"/>
-      </Position>
-      <Position>
-        <Filename Value="UMainForm.pas"/>
-        <Caret Line="1016" Column="38" TopLine="1013"/>
-      </Position>
-      <Position>
-        <Filename Value="UMainForm.pas"/>
-        <Caret Line="1017" Column="38" TopLine="1014"/>
-      </Position>
-      <Position>
-        <Filename Value="uformatjson.pas"/>
-        <Caret Line="14" Column="34" TopLine="12"/>
-      </Position>
-      <Position>
-        <Filename Value="uformatjson.pas"/>
-        <Caret Line="59" TopLine="43"/>
-      </Position>
-      <Position>
-        <Filename Value="uformatjson.pas"/>
-        <Caret Line="21" Column="32" TopLine="10"/>
-      </Position>
-      <Position>
-        <Filename Value="UMainForm.pas"/>
-        <Caret Line="1025" Column="24" TopLine="1016"/>
+        <Caret Line="950" Column="29" TopLine="939"/>
       </Position>
     </JumpHistory>
     <RunParams>
@@ -358,7 +398,7 @@
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
         <Source Value="UMainForm.pas"/>
-        <Line Value="1189"/>
+        <Line Value="1277"/>
       </Item>
     </BreakPoints>
   </Debugging>

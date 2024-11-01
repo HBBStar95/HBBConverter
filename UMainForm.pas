@@ -5,7 +5,7 @@ interface
 uses
   SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, ExtCtrls,
   StdCtrls, Buttons, Clipbrd, ComCtrls, Menus, Spin, uFlipText,
-  uReplaceText, uSubRow, uCase, uCSV, uSequencesNo, uSetup, uTools, uCopyText, uFormatSQL, uFormatJSON
+  uReplaceText, uSubRow, uCase, uCSV, uSequencesNo, uSetup, uTools, uCopyText, uFormatSQL, uFormatJSON, uFormatXML, uDelphiLazarus, uCSharpJava, uDetectTextFormat
   {$IFDEF WINDOWS}
 //  ,ShellApi
   , Windows
@@ -16,7 +16,7 @@ uses
   , Types;
 
 const
-  ApplicationName = 'HBB Converter version 1.0.11';
+  ApplicationName = 'HBB Converter version 1.0.14';
 
 type
   TFormatCount = record
@@ -34,6 +34,7 @@ type
     CBAllLowerCase: TCheckBox;
     CBAllUpperCase: TCheckBox;
     CBCamelCase: TCheckBox;
+    CBBreakLine: TCheckBox;
     ECopyFrom02: TEdit;
     ECopyFrom04: TEdit;
     ECopyFrom03: TEdit;
@@ -66,12 +67,13 @@ type
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
-    RBFormatTab: TRadioButton;
-    RBFormatTwoSpace: TRadioButton;
+    RBCSharpJaveVariabel: TRadioButton;
+    RBDelphiLazarusVariable: TRadioButton;
+    RadioButton3: TRadioButton;
     RadioGroup2: TRadioGroup;
     RBFormatSQL: TRadioButton;
     RBFormatJSON: TRadioButton;
-    RadioButton3: TRadioButton;
+    RBFormatXML: TRadioButton;
     RadioButton4: TRadioButton;
     RadioGroup1: TRadioGroup;
     Separator3: TMenuItem;
@@ -107,6 +109,7 @@ type
     MMRemoveFilter: TMenuItem;
     SBFlipViews: TSpeedButton;
     PageControl1: TPageControl;
+    SpeedButton1: TSpeedButton;
     StatusBar1: TStatusBar;
     TabSheet1: TTabSheet;
     Timer1: TTimer;
@@ -284,6 +287,7 @@ type
     procedure SBDataInCopyClick(Sender: TObject);
     procedure SBDataInDeleteClick(Sender: TObject);
     procedure SBDataInTrimClick(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton5Click(Sender: TObject);
     procedure PFunctionsDataInResize(Sender: TObject);
     procedure PFunctionsDataOutResize(Sender: TObject);
@@ -921,6 +925,32 @@ begin
 
 end;
 
+procedure TFMainForm.SpeedButton1Click(Sender: TObject);
+var
+  t: integer;
+  stl: TStringList;
+begin
+  stl := TStringList.Create();
+  for t := 0 to MDataIn.Lines.Count - 1 do
+  begin
+    if t <= MDataOut.Lines.Count - 1 then
+    begin
+      if MDataIn.Lines[t] <> MDataOut.Lines[t] then
+        stl.Add(MDataIn.Lines[t]);
+    end
+    else
+      stl.Add(MDataIn.Lines[t]);
+
+  end;
+  if MDataIn.Lines.Count < MDataOut.Lines.Count then
+    for t := MDataIn.Lines.Count - 1 to MDataOut.Lines.Count - 1 do
+    begin
+      stl.Add(MDataOut.Lines[t]);
+    end;
+  MDataOut.Text := stl.Text;
+  FreeAndNil(stl);
+end;
+
 procedure TFMainForm.SBExitClick(Sender: TObject);
 begin
   Close;
@@ -988,6 +1018,7 @@ procedure TFMainForm.SBExecuteClick(Sender: TObject);
 
 var
   I: integer;
+  StlData: TStringList;
 begin
   SetLength(FormatCountList, 0);
   FormatCountNo := 0;
@@ -1002,12 +1033,25 @@ begin
 
   if MDataIn.Visible then
   begin
-    for I := 0 to MDataIn.Lines.Count - 1 do
+    StlData := TStringList.Create();
+    StlData.Text := MDataIn.Text;
+    if RBFormatSQL.Checked then
+      StlData.Text := FormatSQL(StlData.Text);
+
+    if RBFormatJSON.Checked then
+      StlData.Text := FormatJSON(StlData.Text);
+
+    if RBFormatXML.Checked then
+      StlData.Text := FormatXML(StlData.Text);
+
+
+    for I := 0 to StlData.Count - 1 do
     begin
       ProgressBar1.Position := I;
       ProgressBar1.Update;
-      MDataOut.Lines.Add(FormatRow(MDataIn.Lines[I]));
+      MDataOut.Lines.Add(FormatRow(StlData.Strings[I]));
     end;
+    FreeAndNil(StlData);
   end
   else if LVMultiselect.SelCount > 0 then
     for I := 0 to LVMultiselect.Items.Count - 1 do
@@ -1020,14 +1064,16 @@ begin
       else
         MDataOut.Lines.Add(LVMultiselect.Items[I].Caption);
     end;
-  if RBFormatSQL.Checked then
-    MDataOut.Text := FormatSQL(MDataOut.Text);
 
-  if RBFormatJSON.Checked then
-    MDataOut.Text := FormatJSON(MDataOut.Text,RBFormatTab.Checked);
+  if RBDelphiLazarusVariable.Checked then
+    MDataOut.Text := DataToDelphiLazarusVar(MDataOut.Text, RBFormatSQL.Checked, CBBreakLine.Checked);
+
+  if RBCSharpJaveVariabel.Checked then
+    MDataOut.Text := DataToCSharpJavaVar(MDataOut.Text, CBBreakLine.Checked);
 
   if CBTSMiscellaneousSumAllLinesToATotal.Checked then
     MDataOut.Lines.Add(Format('Total : %.2f', [GetTotalFromRows(MDataOut)]));
+
 
   ProgressBar1.Visible := False;
 end;
@@ -1055,6 +1101,7 @@ procedure TFMainForm.MDataInChange(Sender: TObject);
 var
   i: integer;
   setup: Tsetup;
+  StlData: TStringList;
 begin
   SetLength(FormatCountList, 0);
 
@@ -1070,17 +1117,51 @@ begin
     exit;
   end;
 
+  case DetectTextFormat(MDataIn.Text) of
+    tfJSON: begin
+      if not RBFormatJSON.Checked then
+        if MessageDlg('JSON text detected, format text', mtInformation, [mbYes, mbNo], 0) = mrYes then
+          RBFormatJSON.Checked := True;
+    end;
+    tfXML: begin
+      if not RBFormatXML.Checked then
+        if MessageDlg('XML text detected, format text', mtInformation, [mbYes, mbNo], 0) = mrYes then
+          RBFormatXML.Checked := True;
+
+    end;
+    tfSQL: begin
+      if not RBFormatSQL.Checked then
+        if MessageDlg('SQL script detected, format script', mtInformation, [mbYes, mbNo], 0) = mrYes then
+          RBFormatSQL.Checked := True;
+
+    end;
+  end;
+
+
   PShowPreviewInfo.Visible := True;
 
   MDataOut.Lines.Clear;
 
   if MDataIn.Visible then
   begin
-    for I := 0 to MDataIn.Lines.Count - 1 do
+    StlData := TStringList.Create();
+    StlData.Text := MDataIn.Text;
+
+    if RBFormatSQL.Checked then
+      StlData.Text := FormatSQL(StlData.Text);
+
+    if RBFormatJSON.Checked then
+      StlData.Text := FormatJSON(StlData.Text);
+
+    if RBFormatXML.Checked then
+      StlData.Text := FormatXML(StlData.Text);
+
+
+    for I := 0 to StlData.Count - 1 do
     begin
       ProgressBar1.Position := I;
       ProgressBar1.Update;
-      MDataOut.Lines.Add(FormatRow(MDataIn.Lines[I]));
+      MDataOut.Lines.Add(FormatRow(StlData.Strings[I]));
       if i > setup.PreViewNumberOfRows - 2 then
         break;
     end;
@@ -1098,6 +1179,13 @@ begin
       if i > setup.PreViewNumberOfRows - 2 then
         break;
     end;
+
+  if RBDelphiLazarusVariable.Checked then
+    MDataOut.Text := DataToDelphiLazarusVar(MDataOut.Text, RBFormatSQL.Checked, CBBreakLine.Checked);
+
+  if RBCSharpJaveVariabel.Checked then
+    MDataOut.Text := DataToCSharpJavaVar(MDataOut.Text, CBBreakLine.Checked);
+
 end;
 
 procedure TFMainForm.MenuItemFormatCountClick(Sender: TObject);
