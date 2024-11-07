@@ -125,9 +125,9 @@ begin
     Language.MainMenuShowDataIn := getString('MainMenu', 'ShowDataIn', 'Show only left (Data in)');
     Language.MainMenuShowDataOut := getString('MainMenu', 'ShowDataOut', 'Show only right (Data Out)');
     Language.MainMenuNormalView := getString('MainMenu', 'NormalView', 'Normal view');
-    Language.MainMenuInsertCode:= getString('MainMenu', 'InsertCode', 'Insert code');
-    Language.MainMenuTheEntireStartingLine:= getString('MainMenu', 'TheEntireStartingLine', 'the entire starting line.');
-    Language.MainMenuCopyTextTo:= getString('MainMenu', 'CopyTextTo', 'Copy text to');
+    Language.MainMenuInsertCode := getString('MainMenu', 'InsertCode', 'Insert code');
+    Language.MainMenuTheEntireStartingLine := getString('MainMenu', 'TheEntireStartingLine', 'the entire starting line.');
+    Language.MainMenuCopyTextTo := getString('MainMenu', 'CopyTextTo', 'Copy text to');
 
     // Info : TabSheet
     Language.TabSheetMainHeader := getString('TabSheetMain', 'Header', 'Main');
@@ -173,6 +173,7 @@ begin
     Language.To_ := getString('Global', 'To', 'To');
     Language.Copy := getString('Global', 'Copy', 'Copy');
     Language.Info := getString('Global', 'Info', 'Info');
+    Language.None := getString('Global', 'None', 'None');
 
     Language.TabSheetMiscellaneousHeader := getString('TabSheetMiscellaneous', 'Header', 'Miscellaneous');
     Language.TabSheetMiscellaneousSelectOnlyRowsContainingThis := getString('TabSheetMiscellaneous', 'TabSheetMiscellaneousSelectOnlyRowsContainingThis', 'Select only rows containing this.');
@@ -183,10 +184,28 @@ begin
     Language.TabSheetMiscellaneousSumAllLinesToATotal := getString('TabSheetMiscellaneous', 'TabSheetMiscellaneousSumAllLinesToATotal', 'Sum all lines to a total.');
     Language.TabSheetMiscellaneousNewLine := getString('TabSheetMiscellaneous', 'TabSheetMiscellaneousNewLine', 'Replace with line breaks');
 
-    Language.TabSheetCopyCopyTextTo:= getString('TabSheetCopy', 'TabSheetCopyCopyTextTo', 'Copy text to');
-    Language.MsgProgramMustBeRestartedDoYouWantToRestartTheProgram:= getString('Message', 'ProgramMustBeRestartedDoYouWantToRestartTheProgram', 'Program must be restarted. Do you want to restart the program?');
-    Language.MsgNotPossibleToCopyFileToSetupFolder:= getString('Message', 'MsgNotPossibleToCopyFileToSetupFolder', 'Not possible to copy file to setup folder.');
-    Language.MsgInsertCode2InYourDataInputOrInVonvateringsFilterCode2WillBeReplacedWithTheCopiedText:= getString('Message', 'MsgInsertCode2InYourDataInputOrInVonvateringsFilterCode2WillBeReplacedWithTheCopiedText', 'insert {2},{3} or {4} in your data input, or in convatering''s filter. {x} will be replaced with the copied text.');
+    Language.TabSheetCopyCopyTextTo := getString('TabSheetCopy', 'TabSheetCopyCopyTextTo', 'Copy text to');
+    Language.MsgProgramMustBeRestartedDoYouWantToRestartTheProgram := getString('Message', 'ProgramMustBeRestartedDoYouWantToRestartTheProgram', 'Program must be restarted. Do you want to restart the program?');
+    Language.MsgNotPossibleToCopyFileToSetupFolder := getString('Message', 'MsgNotPossibleToCopyFileToSetupFolder', 'Not possible to copy file to setup folder.');
+    Language.MsgInsertCode2InYourDataInputOrInVonvateringsFilterCode2WillBeReplacedWithTheCopiedText := getString('Message', 'MsgInsertCode2InYourDataInputOrInVonvateringsFilterCode2WillBeReplacedWithTheCopiedText', 'insert {2},{3} or {4} in your data input, or in convatering''s filter. {x} will be replaced with the copied text.');
+
+
+    // Info : Format types
+    Language.TabSheetFormatHeaderText := getString('TabSheetFormat', 'TabSheetFormatHeader', 'Format');
+    Language.TabSheetFormatType := getString('TabSheetFormat', 'TabSheetFormatType', 'Format type');
+    Language.TabSheetFormatSQL := getString('TabSheetFormat', 'TabSheetFormatSQL', 'SQL');
+    Language.TabSheetFormatJSON := getString('TabSheetFormat', 'TabSheetFormatJSON', 'JSON');
+    Language.TabSheetFormatXML := getString('TabSheetFormat', 'TabSheetFormatXML', 'XML');
+
+    // Info : Add til variabel
+    Language.TabSheetFormatToVariable := getString('TabSheetFormat', 'TabSheetFormatToVariable', 'To variable');
+    Language.TabSheetFormatVariableCSharpJave := getString('TabSheetFormat', 'TabSheetFormatCSharpJava', 'C# / Java');
+    Language.TabSheetFormatVariableDelphiLazarus := getString('TabSheetFormat', 'TabSheetFormatDelphiLazarus', 'Delphi / Lazarus');
+
+    Language.TabSheetFormatBreakLine := getString('TabSheetFormat', 'TabSheetFormatBreakLine', 'Break line');
+
+
+
 
   finally
     Ini.Free;

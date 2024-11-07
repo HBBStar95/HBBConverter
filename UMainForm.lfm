@@ -2959,7 +2959,7 @@ object FMainForm: TFMainForm
       Caption = 'Formater'
       ClientHeight = 448
       ClientWidth = 301
-      object Label15: TLabel
+      object LFormatHeaderText: TLabel
         Left = 3
         Height = 14
         Top = 3
@@ -2973,7 +2973,7 @@ object FMainForm: TFMainForm
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object RadioGroup1: TRadioGroup
+      object RGFormatType: TRadioGroup
         Left = 3
         Height = 105
         Top = 20
@@ -3020,7 +3020,7 @@ object FMainForm: TFMainForm
           TabOrder = 2
           OnChange = DataChangePreView
         end
-        object RadioButton4: TRadioButton
+        object RBFormaterNone: TRadioButton
           Left = 6
           Height = 19
           Top = 66
@@ -3032,7 +3032,7 @@ object FMainForm: TFMainForm
           OnChange = DataChangePreView
         end
       end
-      object RadioGroup2: TRadioGroup
+      object RGToVariable: TRadioGroup
         Left = 0
         Height = 120
         Top = 128
@@ -3069,7 +3069,7 @@ object FMainForm: TFMainForm
           TabOrder = 1
           OnChange = DataChangePreView
         end
-        object RadioButton3: TRadioButton
+        object RBToVariableNone: TRadioButton
           Left = 6
           Height = 23
           Top = 46

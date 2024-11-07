@@ -51,7 +51,7 @@ type
     Label10: TLabel;
     Label12: TLabel;
     Label14: TLabel;
-    Label15: TLabel;
+    LFormatHeaderText: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
@@ -69,13 +69,13 @@ type
     MenuItem6: TMenuItem;
     RBCSharpJaveVariabel: TRadioButton;
     RBDelphiLazarusVariable: TRadioButton;
-    RadioButton3: TRadioButton;
-    RadioGroup2: TRadioGroup;
+    RBToVariableNone: TRadioButton;
+    RGToVariable: TRadioGroup;
     RBFormatSQL: TRadioButton;
     RBFormatJSON: TRadioButton;
     RBFormatXML: TRadioButton;
-    RadioButton4: TRadioButton;
-    RadioGroup1: TRadioGroup;
+    RBFormaterNone: TRadioButton;
+    RGFormatType: TRadioGroup;
     Separator3: TMenuItem;
     MMInsertCode: TMenuItem;
     MMTheEntireStartingLine: TMenuItem;
@@ -1391,6 +1391,23 @@ begin
   Label4.Caption := Setup.Language.TabSheetCopyCopyTextTo + ' {4}';
   Label14.Caption := Setup.Language.MsgInsertCode2InYourDataInputOrInVonvateringsFilterCode2WillBeReplacedWithTheCopiedText;
   Label12.Caption := setup.Language.info;
+
+  // Info : Format types
+  LFormatHeaderText.Caption := Setup.Language.TabSheetFormatHeaderText;
+ RGFormatType.Caption := Setup.Language.TabSheetFormatType;
+ RBFormatSQL.Caption := Setup.Language.TabSheetFormatSQL;
+  RBFormatJSON.Caption := Setup.Language.TabSheetFormatJSON;
+  RBFormatXML.Caption := Setup.Language.TabSheetFormatXML;
+  RBFormaterNone.Caption:= setup.Language.None;
+
+  // Info : Add til variabel
+RGToVariable.Caption := Setup.Language.TabSheetFormatToVariable;
+RBCSharpJaveVariabel.Caption := Setup.Language.TabSheetFormatVariableCSharpJave;
+RBDelphiLazarusVariable.Caption := Setup.Language.TabSheetFormatVariableDelphiLazarus;
+RBToVariableNone.Caption := Setup.Language.None;
+
+ CBBreakLine.Caption:=Setup.Language.TabSheetFormatBreakLine;
+
 end;
 
 

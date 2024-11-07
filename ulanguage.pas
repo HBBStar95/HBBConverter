@@ -78,6 +78,7 @@ type
     FTo: string;
     FCopy: string;
     FInfo: string;
+    FNone:String;
     FTabSheetMiscellaneousHeader: string;
     FTabSheetMiscellaneousSelectOnlyRowsContainingThis: string;
     FTabSheetMiscellaneousSum: string;
@@ -91,6 +92,16 @@ type
     FMsgNotPossibleToCopyFileToSetupFolder: string;
     FMsgInsertCode2InYourDataInputOrInVonvateringsFilterCode2WillBeReplacedWithTheCopiedText: string;
     FTabSheetMiscellaneousNewLine:String;
+    FTabSheetFormatHeaderText:String;
+    FTabSheetFormatType:String;
+    FTabSheetFormatSQL:String;
+    FTabSheetFormatJSON:String;
+    FTabSheetFormatXML:String;
+//    FTabSheetFormatVariableCSharpJaveVariabel:String;
+    FTabSheetFormatVariableDelphiLazarus:String;
+    FTabSheetFormatBreakLine:String;
+    FTabSheetFormatToVariable:String;
+    FTabSheetFormatVariableCSharpJave:String;
   public
   published
     property PanelPreViewInfo: string read FPanelPreViewInfo write FPanelPreViewInfo;
@@ -169,6 +180,8 @@ type
     property To_: string read FTo write FTo;
     property Copy: string read FCopy write FCopy;
     property Info: string read FInfo write FInfo;
+    property None: string read FNone write FNone;
+
 
     property TabSheetMiscellaneousHeader: string read FTabSheetMiscellaneousHeader write FTabSheetMiscellaneousHeader;
     property TabSheetMiscellaneousSelectOnlyRowsContainingThis: string read FTabSheetMiscellaneousSelectOnlyRowsContainingThis write FTabSheetMiscellaneousSelectOnlyRowsContainingThis;
@@ -185,6 +198,17 @@ type
     property MsgNotPossibleToCopyFileToSetupFolder: string read FMsgNotPossibleToCopyFileToSetupFolder write FMsgNotPossibleToCopyFileToSetupFolder;
     property MsgInsertCode2InYourDataInputOrInVonvateringsFilterCode2WillBeReplacedWithTheCopiedText: string read FMsgInsertCode2InYourDataInputOrInVonvateringsFilterCode2WillBeReplacedWithTheCopiedText write FMsgInsertCode2InYourDataInputOrInVonvateringsFilterCode2WillBeReplacedWithTheCopiedText;
     property TabSheetMiscellaneousNewLine:string read FTabSheetMiscellaneousNewLine write FTabSheetMiscellaneousNewLine;
+
+    property TabSheetFormatHeaderText:string read FTabSheetFormatHeaderText write FTabSheetFormatHeaderText;
+    property TabSheetFormatType:string read FTabSheetFormatType write FTabSheetFormatType;
+    property TabSheetFormatSQL:string read FTabSheetFormatSQL write FTabSheetFormatSQL;
+    property TabSheetFormatJSON:string read FTabSheetFormatJSON write FTabSheetFormatJSON;
+    property TabSheetFormatXML:string read FTabSheetFormatXML write FTabSheetFormatXML;
+    property TabSheetFormatToVariable:string read FTabSheetFormatToVariable write FTabSheetFormatToVariable;
+    property TabSheetFormatVariableCSharpJave:string read FTabSheetFormatVariableCSharpJave write FTabSheetFormatVariableCSharpJave;
+    property TabSheetFormatVariableDelphiLazarus:string read FTabSheetFormatVariableDelphiLazarus write FTabSheetFormatVariableDelphiLazarus;
+    property TabSheetFormatBreakLine:string read FTabSheetFormatBreakLine write FTabSheetFormatBreakLine;
+
 
   end;
 
